@@ -1,0 +1,130 @@
+body {
+    font-size: 16px;
+
+}
+
+.btn-rounded-corner {
+    border-radius: ;
+    color: #A680F9;
+    border: 1px solid #A680F9;
+
+}
+
+.page-header{
+    height: 108px;
+    width: 100%;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .25);    
+}
+
+.header-brand {
+    height: 78,04px;
+    width: 463,41px;
+
+}
+
+.page-header nav a{
+    color: #807A7A;
+    font-family: Segoe UI, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    margin-left: 40px;
+}
+.page-header nav a.active{
+    color: #A680F9;
+} 
+.page-footer{
+    height: 264px;
+    background-color: #7B0F99;
+    color: #ffffff;
+
+}
+.page-main{
+    margin-bottom: 40px;
+
+}
+.page-main .news-title{
+    height: 40px;
+    color: #A680F9;
+    font-weight: 300;
+    font-size: 30px;
+    font-family: Segoe UI, sans-serif;
+}
+.news-title::before {
+    content:'';
+    width: 50px;
+    height: 2px;
+    display: inline-block;
+    margin-right: 35px;
+    background-color: #A680F9;
+
+}
+.news-title::after{
+    content:'';
+    width: 50px;
+    height: 2px;
+    display: inline-block;
+    margin-left: 35px;
+    background-color: #A680F9;
+}
+.page-main news-body{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 45px;
+
+}
+.card{
+    overflow: hidden;
+    min-width: 348;
+}
+.card-top-img{
+    overflow: hidden;
+    margin: auto;
+    border: 1px solid rgba(0, 0, 0, .15);
+    
+}
+.card-top-img img{
+    transition: all .3s ease-out;
+    display: block;
+    max-width: 100%;
+    width: 100%;
+}
+.card-body{
+    padding: 20px;
+    display: block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.card-body title{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #707070;
+    font-weight: 300;
+    font-size: 20px;
+
+
+}
+.card:hover{
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .16);
+    border-radius: 11px;
+
+}
+.card:hover .card-top-img {
+    border: 0;
+    
+}
+.card:hover img{
+    transform: scale(1.2);
+}
+.card-text{
+    display: none;
+
+
+}
+
+.card:hover .card-text {
+    display: block;
+    color: #707070;
+    font-size: 14px;
+    font-weight: 400;
+    
+}

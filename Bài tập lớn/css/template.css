@@ -1,86 +1,67 @@
+:root {
+    --primary: #A680F9;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+input, button {
+    border: none;
+    outline: none;
+}
+
 body {
     font-size: 16px;
+}
 
+.btn-outline-primary {
+    color: var(--primary);
+    border: 1px solid var(--primary);
 }
 
 .btn-rounded-corner {
     border-radius: ;
-    color: #A680F9;
-    border: 1px solid #A680F9;
-
 }
 
-.page-header{
-    height: 108px;
-    width: 100%;
-    box-shadow: 0 3px 9px rgba(0, 0, 0, .25);    
-}
 
-.header-brand {
-    height: 78,04px;
-    width: 463,41px;
-
-}
-
-.page-header nav a{
-    color: #807A7A;
-    font-family: Segoe UI, sans-serif;
-    font-size: 18px;
-    font-weight: 300;
-    margin-left: 40px;
-}
-.page-header nav a.active{
-    color: #A680F9;
-} 
-.page-footer{
-    height: 264px;
-    background-color: #7B0F99;
-    color: #ffffff;
-
-}
-.page-main{
-    margin-bottom: 40px;
-
-}
-.page-main .news-title{
+/* News */
+.news-title{
     height: 40px;
     color: #A680F9;
     font-weight: 300;
     font-size: 30px;
-    font-family: Segoe UI, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.news-title::before {
+.news-title::before, .news-title::after {
     content:'';
     width: 50px;
     height: 2px;
     display: inline-block;
-    margin-right: 35px;
     background-color: #A680F9;
+}
 
+.news-title::before {
+    margin-right: 35px;
 }
 .news-title::after{
-    content:'';
-    width: 50px;
-    height: 2px;
-    display: inline-block;
     margin-left: 35px;
-    background-color: #A680F9;
 }
-.page-main news-body{
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-top: 45px;
+.news-body{
+    margin: 45px 40px;
+}
 
-}
+
+/* Card */
 .card{
     overflow: hidden;
-    min-width: 348;
+    min-width: 348px;
 }
 .card-top-img{
     overflow: hidden;
     margin: auto;
     border: 1px solid rgba(0, 0, 0, .15);
-    
+    background-color: #F0F0F0;
 }
 .card-top-img img{
     transition: all .3s ease-out;
@@ -92,39 +73,63 @@ body {
     padding: 20px;
     display: block;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
-.card-body title{
+.card-title{
     margin-top: 15px;
     margin-bottom: 10px;
     color: #707070;
     font-weight: 300;
     font-size: 20px;
-
-
 }
+.card-text{
+    display: none;
+}
+
 .card:hover{
     box-shadow: 0 3px 10px rgba(0, 0, 0, .16);
     border-radius: 11px;
-
+    cursor: pointer;
 }
 .card:hover .card-top-img {
     border: 0;
-    
 }
 .card:hover img{
     transform: scale(1.2);
 }
-.card-text{
-    display: none;
-
-
-}
-
 .card:hover .card-text {
     display: block;
     color: #707070;
     font-size: 14px;
     font-weight: 400;
-    
+}
+
+
+.page-header{
+    height: 108px;
+    width: 100%;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .25);    
+}
+
+.header-brand {
+}
+
+.page-header nav a{
+    color: #807A7A;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    margin-left: 40px;
+}
+.page-header nav a.active{
+    color: #A680F9;
+} 
+.page-footer{
+    height: 264px;
+    background-color: #7B0F99;
+    color: #ffffff;
+}
+
+.page-main{
+    margin-bottom: 40px;
+    box-shadow: 0 1px 7px rgba(0, 0, 0, .2), 0 3px 10px rgba(0, 0, 0, .15);
 }

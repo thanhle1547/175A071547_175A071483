@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 16, 2019 lúc 02:19 PM
+-- Thời gian đã tạo: Th12 16, 2019 lúc 06:55 PM
 -- Phiên bản máy phục vụ: 10.1.38-MariaDB
 -- Phiên bản PHP: 7.3.4
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `DH_ThuyLoi`
+-- Cơ sở dữ liệu: `dh_thuyloi`
 --
 
 -- --------------------------------------------------------
@@ -44,6 +44,21 @@ CREATE TABLE `account_nv` (
   `MaNV` tinyint(3) UNSIGNED NOT NULL,
   `Username` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Password` char(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `baiviet`
+--
+
+CREATE TABLE `baiviet` (
+  `MaTin` tinyint(3) UNSIGNED NOT NULL,
+  `TieuDe` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `TomTat` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `HinhAnh` mediumblob NOT NULL,
+  `MoTa` mediumtext COLLATE utf8mb4_unicode_ci,
+  `MaDM` tinyint(3) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -174,21 +189,6 @@ CREATE TABLE `thoigian` (
   `TG_KetThuc` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `tintuc`
---
-
-CREATE TABLE `tintuc` (
-  `MaTin` tinyint(3) UNSIGNED NOT NULL,
-  `TieuDe` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `TomTat` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `HinhAnh` mediumblob NOT NULL,
-  `MoTa` mediumtext COLLATE utf8mb4_unicode_ci,
-  `MaDM` tinyint(3) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 --
 -- Chỉ mục cho các bảng đã đổ
 --
@@ -204,6 +204,13 @@ ALTER TABLE `account_gv`
 --
 ALTER TABLE `account_nv`
   ADD PRIMARY KEY (`MaNV`);
+
+--
+-- Chỉ mục cho bảng `baiviet`
+--
+ALTER TABLE `baiviet`
+  ADD PRIMARY KEY (`MaTin`),
+  ADD KEY `MaDM` (`MaDM`);
 
 --
 -- Chỉ mục cho bảng `danhmuctt`
@@ -273,15 +280,14 @@ ALTER TABLE `thoigian`
   ADD PRIMARY KEY (`MaTG`);
 
 --
--- Chỉ mục cho bảng `tintuc`
---
-ALTER TABLE `tintuc`
-  ADD PRIMARY KEY (`MaTin`),
-  ADD KEY `MaDM` (`MaDM`);
-
---
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
+
+--
+-- AUTO_INCREMENT cho bảng `baiviet`
+--
+ALTER TABLE `baiviet`
+  MODIFY `MaTin` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `danhmuctt`
@@ -326,12 +332,6 @@ ALTER TABLE `thoigian`
   MODIFY `MaTG` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `tintuc`
---
-ALTER TABLE `tintuc`
-  MODIFY `MaTin` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- Các ràng buộc cho các bảng đã đổ
 --
 
@@ -346,6 +346,12 @@ ALTER TABLE `account_gv`
 --
 ALTER TABLE `account_nv`
   ADD CONSTRAINT `account_nv_ibfk_1` FOREIGN KEY (`MaNV`) REFERENCES `nhanvien` (`MaNV`);
+
+--
+-- Các ràng buộc cho bảng `baiviet`
+--
+ALTER TABLE `baiviet`
+  ADD CONSTRAINT `baiviet_ibfk_1` FOREIGN KEY (`MaDM`) REFERENCES `danhmuctt` (`MaDM`);
 
 --
 -- Các ràng buộc cho bảng `lichtrinh`
@@ -368,12 +374,6 @@ ALTER TABLE `lophocphan`
 --
 ALTER TABLE `monhoc`
   ADD CONSTRAINT `monhoc_ibfk_1` FOREIGN KEY (`MaNganh`) REFERENCES `nganhhoc` (`MaNganh`);
-
---
--- Các ràng buộc cho bảng `tintuc`
---
-ALTER TABLE `tintuc`
-  ADD CONSTRAINT `tintuc_ibfk_1` FOREIGN KEY (`MaDM`) REFERENCES `danhmuctt` (`MaDM`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

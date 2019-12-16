@@ -1,27 +1,20 @@
-﻿Create Database DH_ThuyLoi
-/*
-Create Table Khoa (
-	Ma tinyint UNSIGNED UNSIGNED AUTO_INCREMENT,
-	TenKhoa varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
-)
-*/
 Create Table NganhHoc (
 	MaNganh varchar(10) Not null Primary key,
-	TenNghanh varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null, -- utf8 -> utf8mb4
+	TenNghanh varchar(50) Not null, -- utf8 -> utf8mb4
 	ChiTiet varchar(21844)
 );
 Create Table MonHoc (
 	MaMon varchar(10) Not null Primary key,
 	MaNganh varchar(10) Not null,
-	TenMon varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null,
+	TenMon varchar(30) Not null,
 	SoTinChi tinyint UNSIGNED,
 	ThucHanh boolean,
 	Foreign Key (MaNganh) References NganhHoc(MaNganh)
 );
 Create Table GiangVien (
 	MaGV tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
-	HoTen varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null,
-	GioiTinh varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+	HoTen varchar(50) Not null,
+	GioiTinh varchar(3)
 );
 Create Table Account_GV (
 	MaGV tinyint UNSIGNED Not null Primary key,
@@ -31,7 +24,7 @@ Create Table Account_GV (
 );
 Create Table Lop (
 	MaLop tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
-	TenLop varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null
+	TenLop varchar(30) Not null
 );
 Create Table ThoiGian (
 	MaTG tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
@@ -62,7 +55,7 @@ Create Table LichTrinh (
 	MaLT tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
 	MaLHP tinyint UNSIGNED Not null,
 	MaDD tinyint UNSIGNED Not null,
-	BaiHoc varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci, 
+	BaiHoc varchar(50) , 
 	Thoigian datetime,
 	Foreign Key (MaLHP) References LopHocPhan(MaLHP),
 	Foreign key (MaDD) References DiaDiem(MaDD)
@@ -71,9 +64,9 @@ Create Table LichTrinh (
 
 Create Table NhanVien (
 	MaNV tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
-	HoTen varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null,
-	GioiTinh varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-	ChucVu varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+	HoTen varchar(25) Not null,
+	GioiTinh varchar(3) ,
+	ChucVu varchar(25) 
 );
 Create Table Account_NV (
 	MaNV tinyint UNSIGNED Not null Primary key,
@@ -85,14 +78,14 @@ Create Table Account_NV (
 
 Create Table DanhMucTT (
 	MaDM tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
-	TenDM varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null
+	TenDM varchar(120) Not null
 );
 Create Table BaiViet (
 	MaBai tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
-	TieuDe varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null,
-	TomTat varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+	TieuDe varchar(120) Not null,
+	TomTat varchar(500) ,
 	HinhAnh mediumblob Not null, --  ~ 16 megabytes
-	MoTa varchar(21844) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+	MoTa varchar(21844) ,
 	MaDM tinyint UNSIGNED Not null,
 	Foreign Key (MaDM) References DanhMucTT(MaDM)
 );

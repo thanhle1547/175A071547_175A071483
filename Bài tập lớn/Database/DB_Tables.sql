@@ -87,8 +87,8 @@ Create Table DanhMucTT (
 	MaDM tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
 	TenDM varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null
 );
-Create Table TinTuc (
-	MaTin tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
+Create Table BaiViet (
+	MaBai tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
 	TieuDe varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null,
 	TomTat varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
 	HinhAnh mediumblob Not null, --  ~ 16 megabytes

@@ -1,6 +1,8 @@
 :root {
     --primary: #9D76DD;
     --light-purple: #A680F9;
+    --light-gray: #F4F4F9;
+    --dark-grayish-blue: #4b4e55;
 }
 
 *, *::before, *::after {
@@ -17,8 +19,11 @@ body {
 }
 
 .btn {
-    font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.25rem;
     padding: 6px 13px;
+    transition: all .2s cubic-bezier(0.39, 0.58, 0.57, 1);
+    cursor: pointer;
 }
 
 .btn-outline-primary {
@@ -26,8 +31,11 @@ body {
     border: 1px solid var(--primary);
 }
 
-
 .btn-outline-primary:hover {
+    background-color: var(--primary);
+}
+
+.btn:hover, [class|=".btn-outline"]:hover {
     color: white;
 }
 
@@ -35,6 +43,23 @@ body {
     border-radius: 7px;
 }
 
+.btn-primary {
+    background-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary);
+    box-shadow: 0 1px 8px rgba(141, 103, 202, 0.45), 0 1px 3px rgba(141, 103, 202, 0.5);
+}
+
+.btn-inactive {
+    background-color: var(--light-gray);
+    color: var(--dark-grayish-blue);
+}
+
+.text-normal {
+    font-size: 1rem;
+}
 
 /* News */
 .news-title{
@@ -148,17 +173,17 @@ body {
 article {
    
 }
-    .article-title {
-        color: #000000;
-        font-size: 34px;
-        font: 400;
-    }
-    .article-summary {
-        font-size: 19px;
-        font: 400;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #000000;
-    }
-    .article-img{
+.article-title {
+    color: #000000;
+    font-size: 34px;
+    font: 400;
+}
+.article-summary {
+    font-size: 19px;
+    font: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #000000;
+}
+.article-img{
 
-    } 
+}

@@ -4,28 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Login | TLU </title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/template.css">
+    <style>
+        .background {
+            position: absolute;
+            background-image: linear-gradient(135deg, rgba(116,244,159,1) 0%, rgba(115,207,227,1) 50%, rgba(116,176,221,1) 70%, rgba(120,94,206,1) 100%), url("./imgs/Background 1.png");
+            height: 100vh;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-blend-mode: overlay;
+        }
+
+        .login-form {
+
+        }
+
+        .btn-login {
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
-    <img src="" alt="">
-    <div class="login form">
-        <h1 class="TLU">
-
-        </h1>
-        <h2 class="Tài Khoản">
-
-        </h2>
-        <form action="">
-            <label for="">
-                Username
-            </label>
-            <input type="text">
-            <label for="password">
-
-            </label>
-            <input type="text">
-            <button>Đăng Nhập</button>
-            
+    <div class="background"></div>
+    <div class="login-form">
+        <h1 class="">TLU</h1>
+        <h2 class="">Tài khoản</h2>
+        <form action="" method="POST">
+            <label for="username">Username</label>
+            <input type="text" name="username">
+            <label for="password">Password</label>
+            <input type="password" name="password">
+            <button class="btn btn-rounded-corner btn-primary btn-inactive btn-login">Đăng nhập</button>
         </form>
     </div>
 </body>

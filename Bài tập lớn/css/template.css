@@ -246,3 +246,24 @@ article {
     z-index: 99;
     display: none;
 }
+
+.btn-menu{
+    display: none;
+    height: 66px;
+    width: 66px;
+    border-radius: 12px;
+}
+
+@media screen and (max-width: 768px ) {
+    .header-right{
+        display: none;
+     
+    }
+    .btn-menu {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    
+}

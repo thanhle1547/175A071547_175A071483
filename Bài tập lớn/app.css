@@ -1,0 +1,36 @@
+.app-header{
+    display: flex ;
+    justify-content: space-between;
+
+}
+.app-header .title{
+    font-family: Roboto, sans-serif; 
+    color: #646464;
+}
+.accout{
+    height: 28px;
+    color: #707070;
+}
+.accout .name{
+    color: #A680F9;
+}
+.accout .avata{
+    width: 28px;
+    height: 28px;
+    background-color: #EBEBEB;
+}
+nav{
+    background-color: #EC9ECA;
+}
+.submenu-title{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #EC9ECA;
+}
+.submenu{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #707A82;
+}

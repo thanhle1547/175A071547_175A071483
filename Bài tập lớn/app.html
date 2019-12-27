@@ -5,27 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/template.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    
 </head>
 <body>
-    <header>
+    <header class="app-header">
         <button class="menu-icon">
 
         </button>
-        <h3 class="app-title">
+        <h3 class="title ">
             Dashboard
         </h3>
         <div class="account">
-            <img src="" alt="">
-            <span class="account-name">Lê Minh Thành</span>
+            <img src="" alt="" class="avata">
+            <span class="name">Lê Minh Thành
+                <i class="material-icons icon">
+                    keyboard_arrow_down
+                </i>
+            </span>
         </div>
     </header>
-    <aside>
-        <nav>
+   <div class="row">
+    <aside class="col-4 nav-right">
+        <nav class="nav">
             <ul>
-                <li class=title>
-                    Quản Lí
-                    <ul>
-                        <li>Nghành Học</li>
+                <li >
+                    <h5 class="submenu-title">
+                        Quản Lí
+                        <i class="material-icons icon">
+                            keyboard_arrow_down
+                        </i>
+                    </h5>
+                    <ul class="submenu ">
+                        <li >Nghành Học</li>
                         <li>Môn Học</li>
                         <li>Lớp Học Phần </li>
                         <li>Giảng Viên</li>
@@ -34,7 +51,7 @@
             </ul>
         </nav>
     </aside>
-    <div class="content">
+    <div class="content col-8">
         <h1 class="title">
 
         </h1>
@@ -50,5 +67,6 @@
         </table>
     </div>
 
+   </div>
 </body>
 </html>

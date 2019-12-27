@@ -60,30 +60,6 @@
             padding: 9px 21px;
         }
 
-        .form-group {
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: column-reverse;
-            width: 100%;
-            margin: 30px 0;
-        }
-
-        .form-group input {
-            display: block;
-            height: 45px;
-            width: 100%;
-            border-radius: 10px;
-            border: 1.5px solid #CAC8C8;
-            margin-top: 16px;
-            padding: 0 18px;
-            font-size: 1.25rem;
-        }
-
-        .form-group input:focus, .form-group input:focus + label{
-            border-color: #7A6EE8;
-            color: #7A6EE8;
-        }
-
         @media screen and (max-width: 768px ) {
             .background { display: none; }
             .login-form {
@@ -112,10 +88,10 @@
         <h2 class="title">Tài khoản</h2>
         <form action="" method="POST">
             <div class="form-group">
-                <input type="text" name="username">
+                <input type="text" name="username" required>
                 <label for="username">Username</label></div>
             <div class="form-group">
-                <input type="password" name="password">
+                <input type="password" name="password" required>
                 <label for="password">Password</label></div>
             <div class="form-group">
                 <button class="btn btn-rounded-corner btn-primary btn-inactive btn-login">Đăng nhập</button>

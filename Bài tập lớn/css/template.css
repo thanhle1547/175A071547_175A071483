@@ -32,6 +32,12 @@ input, button {
     outline: none;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+}
+
 body {
     font-size: 16px;
     position: relative;
@@ -89,33 +95,6 @@ body {
     padding-left: 0;
 }
 
-/* News */
-.news-title{
-    height: 40px;
-    color: #A680F9;
-    font-weight: 300;
-    font-size: 30px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-}
-.news-title::before, .news-title::after {
-    content:'';
-    width: 50px;
-    height: 2px;
-    display: inline-block;
-    background-color: #A680F9;
-}
-
-.news-title::before {
-    margin-right: 35px;
-}
-.news-title::after{
-    margin-left: 35px;
-}
-.news-body{
-    margin: 45px 40px;
-}
-
 
 /* Card */
 .card{
@@ -126,23 +105,21 @@ body {
 .card-top-img{
     overflow: hidden;
     margin: auto;
-    border: 1px solid rgba(0, 0, 0, .15);
     background-color: #F0F0F0;
+    box-shadow: 0 0px 12px -2px rgba(0, 0, 0, 0.35), 0 0px 16px -5px rgba(0, 0, 0, 0.08);
 }
 .card-top-img img{
     transition: all .3s ease-out;
-    display: block;
-    max-width: 100%;
-    width: 100%;
+    height: 200px;
 }
 .card-body{
     display: flex;
     flex-direction: column;
+    padding: 15px 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: all .5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .card-title{
-    margin-top: 15px;
     margin-bottom: 10px;
     color: #707070;
     font-family: Roboto, sans-serif;
@@ -160,12 +137,13 @@ body {
 }
 .card:hover .card-top-img {
     border: 0;
+    box-shadow: none;
 }
 .card:hover img{
     transform: scale(1.2);
 }
 .card:hover .card-body {
-    padding: 0 20px 15px;
+    padding: 15px 20px;
 }
 .card:hover .card-text {
     display: block;
@@ -203,4 +181,16 @@ body {
 }
 .icon{
     
+}
+
+#back-to-top{
+    width: 65px;
+    height: 65px;
+    background-color: #A19AFF;
+    right: 77px;
+    border-radius: 50%;
+    position: fixed;
+    cursor: pointer;
+    z-index: 99;
+    display: none;
 }

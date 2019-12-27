@@ -1,0 +1,120 @@
+.page-header{
+    height: 108px;
+    width: 100%;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .25);    
+    padding: 15px 0;
+}
+
+.header-brand {
+    max-width: 100%;
+}
+.header-right{
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+
+}
+
+.page-header nav a{
+    color: #807A7A;
+    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-left: 40px;
+}
+.page-header nav a:hover{
+    color: #b79bf3;
+}
+.page-header nav a.active{
+    color: #A680F9;
+} 
+.page-footer{
+    height: 264px;
+    background-color: #7B0F99;
+    color: #ffffff;
+    padding: 15px 0;
+}
+
+.page-main{
+    padding-bottom: 40px;
+    box-shadow: 0 1px 7px rgba(0, 0, 0, .2), 0 3px 10px rgba(0, 0, 0, .15);
+}
+article {
+   
+}
+.article-title {
+    color: #000000;
+    font-size: 34px;
+    font: 400;
+}
+.article-summary {
+    font-size: 19px;
+    font: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #000000;
+}
+.article-img{
+
+}
+.address{
+    display: grid;
+    font-family: Roboto, sans-serif;
+    font-size: 13px;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 14px;
+}
+.address div{
+    width: 150px;
+}
+
+.owl-carousel .owl-item {
+    width: 100%;
+}
+.news-detail{
+    padding: 100px;
+}
+.news-detail .title{
+    text-align: center;
+    font-size: 2.125rem;
+    font-family: Roboto, sans-serif;
+}
+.news-detail .summary{
+    text-align: center;
+    font-size: 1.25rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 45px;
+}
+#back-to-top{
+    width: 65px;
+    height: 65px;
+    background-color: #A19AFF;
+    right: 77px;
+    border-radius: 50%;
+    position: fixed;
+    cursor: pointer;
+    z-index: 99;
+    display: none;
+}
+
+.btn-menu{
+    display: none;
+    height: 66px;
+    width: 66px;
+    border-radius: 12px;
+}
+
+@media screen and (max-width: 768px ) {
+    .header-right{
+        display: none;
+     
+    }
+    .btn-menu {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="css/template.css">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/owl.carousel.js"></script>
+      <style>
+          .owl-nav {
+              position: absolute;
+              left: 0;
+              right: 0;
+              top: 35%;
+          }
+          .owl-prev, .owl-next {
+              position: absolute;
+              filter: drop-shadow(0 0 6px rgba(0, 0, 0, .4));
+          }
+
+          .owl-theme .owl-nav [class*=owl-]:hover {
+              background-color: transparent;
+              filter: drop-shadow(0 0 6px rgba(0, 0, 0, .4));
+          }
+
+          .owl-prev { left: 0; }
+          .owl-next { right: 0; }
+
+          @media screen and (max-width: 992px) {
+              .owl-nav { display: none; }
+            }
+      </style>
+</head>
+<body>
+    <header class="page-header">
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-5 col-md-5 ">
+                   <a href=""> <img class="header-brand" src="imgs/logo.png" alt="aa"></a>
+                </div>
+                <button class="btn btn-outline-primary" id="btn-menu">
+                    <i class="material-icons-round">menu</i>
+                </button>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-7 header-right">
+                    <button class="btn btn-outline-primary btn-rounded-corner btn-login">
+                        Đăng Nhập
+                    </button>
+                    <nav>
+                        <a href="#" class="active">Trang Chủ</a>
+                        <a href="news.html">Tin Tức</a>
+                        <a href="schedule.html">Lịch Trình Giảng Viên</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <main class="page-main">
+        <div class="owl-carousel owl-theme owl-loaded">
+            <div class="owl-stage-outer">
+                <div class="owl-stage">
+                    <div class="owl-item">
+                        <img src="imgs/nhanco.png" alt="">
+                    </div>
+                    <div class="owl-item">
+                        <img src="imgs/dangbo1.png" alt="">
+                    </div>
+                    <div class="owl-item">
+                        <img src="imgs/tet2020.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="news">
+            <div class="container">
+                <h1  class="news-title">
+                    Tin Tức
+                 </h1>
+                    <div class="news-body row">
+                        <div class="card">
+                            <div class="card-top-img">
+                                <img src="imgs/image009.jpg" alt="">
+                            </div>
+                            <div class="card-body">
+                                <a href="news-detail.html" class="card-title">
+                                    Gặp mặt cán bộ viên chức nghỉ hưu năm 2019
+                                </a>
+                                <p class=" card-text">
+                                    (TLU) Nhằm tri ân những cống hiến và đóng góp của các cán bộ viên chức đối với sự nghiệp xây dựng và phát triển của Nhà Trường, sáng 24/12, Trường Đại học Thủy lợi tổ chức buổi Gặp mặt các cán bộ...
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-top-img">
+                                <img src="imgs/image011.jpg" alt="">
+                            </div>
+                            <div class="card-body">
+                                <a href="news-detail.html" class="card-title">
+                                    Khai mạc đợt khảo sát chính thức phục vụ đánh giá ngoài 4 chương trình đào tạo
+                                </a>
+                                <p class=" card-text">
+                                    (TLU) – Ngày 26/12, Trường Đại học Thủy lợi diễn ra Khai mạc đợt khảo sát chính thức phục vụ đánh giá ngoài 4 chương trình đào tạo gồm Công nghệ
+                                </p>
+                            </div>
+                        </div>
+                    </div>                
+            </div>
+            
+        </div>
+
+    </main>
+    <footer class="page-footer">        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 pl-0"><img src="imgs/TLU-map.png" alt=""></div>
+                <div class="col-md-8 ">
+                    <div class="address">
+                        <p>TRƯỜNG ĐẠI HỌC THỦY LỢI<br>
+                        Địa chỉ : 175 TÂY SƠN, ĐỐNG ĐA, HÀ NỘI.<br>
+                        Điện thoại: (024) 3852 2201 - Fax: (024) 3563 3351<br>
+                        Email: <a href="#">phonghcth@tlu.edu.vn</a></p>
+                        
+
+                        <p>TRƯỜNG ĐẠI HỌC THỦY LỢI - CƠ SỞ 2<br>
+                        Địa chỉ : Số 2 - Đường Trường Sa - P.17 - Q.Bình Thạnh - Tp.Hồ Chí Minh<br>
+                        Điện thoại: (84)028.38&nbsp;400 532 - Fax: (84)028.38 400542<br>
+                        Email: <a href="#">cs2@tlu.edu.vn</a></p>
+                    </div>
+
+                    <div class="address">
+                        <p>TRƯỜNG ĐẠI HỌC THỦY LỢI - CƠ SỞ 2<br>
+                        Phường An Thạnh - TX Thuận An - Tỉnh Bình Dương<br>
+                        Điện thoại: (84).650.3748 620<br>
+                        Fax:(84).650.3833 489</p>
+                        
+
+                        <p>VIỆN ĐÀO TẠO VÀ KHOA HỌC ỨNG DỤNG MIỀN TRUNG<br>
+                        Địa chỉ: Số 115 Trần Phú, Thành phố&nbsp;Phan Rang, Tỉnh Ninh Thuận<br>
+                        Điện thoại: 02593.823 027, 02593.823 028<br>
+                        Email: <a href="#"> trungtamdh2@tlu.edu.vn</a></p>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <div class="copyright">
+                        © 2019 - TRƯỜNG ĐẠI HỌC THỦY LỢI
+                    </div>
+                    <div class="socials">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </footer>
+    <script>$(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+            items: 1,
+            nav: true,
+            navSpeed: 600,
+            navText: [
+                '<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"width = "60" height = "85"viewBox = "0 0 172 172"style = " fill:#000000;" > <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M120.26563,10.25281c-1.78719,0.05375 -3.48031,0.80625 -4.73,2.08281l-68.8,68.8c-2.6875,2.6875 -2.6875,7.04125 0,9.72875l68.8,68.8c1.72,1.80062 4.28656,2.52625 6.70531,1.89469c2.40531,-0.63156 4.28656,-2.51281 4.91813,-4.91813c0.63156,-2.41875 -0.09406,-4.98531 -1.89469,-6.70531l-63.93563,-63.93563l63.93563,-63.93562c2.02906,-1.97531 2.64719,-4.99875 1.54531,-7.61906c-1.11531,-2.60688 -3.70875,-4.27313 -6.54406,-4.1925z"></path></g></g></svg >',
+                '<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"width = "60" height = "85"viewBox = "0 0 172 172"style = " fill:#000000;" > <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M51.53281,10.25281c-2.80844,0 -5.32125,1.70656 -6.36938,4.3c-1.06156,2.59344 -0.43,5.56312 1.57219,7.51156l63.93562,63.93562l-63.93562,63.93563c-1.80063,1.72 -2.52625,4.28656 -1.89469,6.70531c0.63156,2.40531 2.51281,4.28656 4.91813,4.91813c2.41875,0.63156 4.98531,-0.09406 6.70531,-1.89469l68.8,-68.8c2.6875,-2.6875 2.6875,-7.04125 0,-9.72875l-68.8,-68.8c-1.30344,-1.33031 -3.07719,-2.08281 -4.93156,-2.08281z"></path></g></g></svg >'
+            ],
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplaySpeed: 800,
+            slideTransition: 'ease-in-out',
+            dotsData: true,
+            startPosition: 2
+        });
+      });
+    </script>
+    
+</body>
+</html>

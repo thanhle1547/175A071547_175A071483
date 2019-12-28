@@ -70,6 +70,10 @@ body {
     border-radius: 7px;
 }
 
+.btn-rounded {
+    border-radius: 50px;
+}
+
 .btn-primary {
     background-color: var(--primary);
 }

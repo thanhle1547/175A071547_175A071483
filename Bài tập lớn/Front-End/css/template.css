@@ -19,6 +19,7 @@
     --light-purple: #A680F9;
     --light-gray: #F4F4F9;
     --dark-grayish-blue: #4b4e55;
+    --red: #FF5F5F;
 }
 
 *, *::before, *::after {
@@ -133,7 +134,6 @@ body {
 .card:hover{
     box-shadow: 0 2px 8px -10px rgba(0, 0, 0, .05), 0 3px 14px rgba(0, 0, 0, .16);
     border-radius: 11px;
-    cursor: pointer;
 }
 .card:hover .card-top-img {
     border: 0;
@@ -145,6 +145,7 @@ body {
 .card:hover .card-body {
     padding: 15px 20px;
 }
+.card:hover .card-title { cursor: pointer; }
 .card:hover .card-text {
     display: block;
     color: #707070;
@@ -193,4 +194,8 @@ body {
     cursor: pointer;
     z-index: 99;
     display: none;
+}
+
+.shadow {
+    box-shadow: 0 0px 10px 0px rgba(0, 0, 0, .15), 0 1px 5px rgba(0, 0, 0, .1);
 }

@@ -12,12 +12,14 @@
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/owl.carousel.js"></script>
       <style>
           .owl-nav {
               position: absolute;
               left: 0;
               right: 0;
-              top: 40%;
+              top: 35%;
           }
           .owl-prev, .owl-next {
               position: absolute;
@@ -31,6 +33,10 @@
 
           .owl-prev { left: 0; }
           .owl-next { right: 0; }
+
+          @media screen and (max-width: 992px) {
+              .owl-nav { display: none; }
+            }
       </style>
 </head>
 <body>
@@ -41,17 +47,17 @@
                 <div class="col-5 col-md-5 ">
                    <a href=""> <img class="header-brand" src="imgs/logo.png" alt="aa"></a>
                 </div>
-                <button class="btn-menu btn btn-outline-primary">
-                    <i class="material-icons">menu</i>
+                <button class="btn btn-outline-primary" id="btn-menu">
+                    <i class="material-icons-round">menu</i>
                 </button>
-                <div class="col-7 col-md-7 header-right ">
-                    <button class="btn btn-outline-primary btn-rounded-corner">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-7 header-right">
+                    <button class="btn btn-outline-primary btn-rounded-corner btn-login">
                         Đăng Nhập
                     </button>
-                    <nav >
-                        <a href="/" class="active">Trang Chủ</a>
-                        <a href="">Tin Tức</a>
-                        <a href="">Lịch Trình Giảng Viên</a>
+                    <nav>
+                        <a href="#" class="active">Trang Chủ</a>
+                        <a href="news.html">Tin Tức</a>
+                        <a href="schedule.html">Lịch Trình Giảng Viên</a>
                     </nav>
                 </div>
             </div>
@@ -85,9 +91,9 @@
                                 <img src="imgs/image009.jpg" alt="">
                             </div>
                             <div class="card-body">
-                                <div class="card-title">
+                                <a href="news-detail.html" class="card-title">
                                     Gặp mặt cán bộ viên chức nghỉ hưu năm 2019
-                                </div>
+                                </a>
                                 <p class=" card-text">
                                     (TLU) Nhằm tri ân những cống hiến và đóng góp của các cán bộ viên chức đối với sự nghiệp xây dựng và phát triển của Nhà Trường, sáng 24/12, Trường Đại học Thủy lợi tổ chức buổi Gặp mặt các cán bộ...
                                 </p>
@@ -98,9 +104,9 @@
                                 <img src="imgs/image011.jpg" alt="">
                             </div>
                             <div class="card-body">
-                                <div class="card-title">
+                                <a href="news-detail.html" class="card-title">
                                     Khai mạc đợt khảo sát chính thức phục vụ đánh giá ngoài 4 chương trình đào tạo
-                                </div>
+                                </a>
                                 <p class=" card-text">
                                     (TLU) – Ngày 26/12, Trường Đại học Thủy lợi diễn ra Khai mạc đợt khảo sát chính thức phục vụ đánh giá ngoài 4 chương trình đào tạo gồm Công nghệ
                                 </p>
@@ -155,8 +161,6 @@
         </div>
     
     </footer>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/owl.carousel.js"></script>
     <script>$(document).ready(function(){
         $(".owl-carousel").owlCarousel({
             items: 1,

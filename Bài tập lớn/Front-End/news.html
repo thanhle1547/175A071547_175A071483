@@ -7,15 +7,17 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="css/template.css">
     <link rel="stylesheet" href="css/site.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
     <header class="page-header">
         <div class="container">
             <div class="row">
                 <div class="col-5 col-md-5 ">
-                    <a href=""> <img class="header-brand" src="imgs/logo.png" alt="aa"></a>
+                   <a href=""> <img class="header-brand" src="imgs/logo.png" alt="aa"></a>
                 </div>
                 <button class="btn btn-outline-primary" id="btn-menu">
                     <i class="material-icons-round">menu</i>
@@ -34,20 +36,44 @@
         </div>
     </header>
     <main class="page-main">
-       <div class="container">
-           <div class="news-detail ">
-               <h2 class="title">ĐH Thủy lợi dự kiến mở một số ngành “hot” trong những
-                năm tới đây</h2>
-                <p class="summary">
-                    Tới đây, Trường Đại học Thủy lợi dự kiến sẽ đào tạo một số ngành học đang có nhu cầu lớn trong xã hội nhằm cung cấp nguồn nhân lực chất lượng tốt dựa trên những điều kiện đảm bảo đáp ứng yêu cầu về đào tạo.
-                </p>
-                <img src="imgs/Rectangle 33.png" alt="">
-           </div>
-       </div>
+        <div class="news">
+            <div class="container">
+                <h1  class="news-title">
+                    Tin Tức
+                 </h1>
+                    <div class="news-body row">
+                        <div class="card">
+                            <div class="card-top-img">
+                                <img src="imgs/image009.jpg" alt="">
+                            </div>
+                            <div class="card-body">
+                                <div class="card-title">
+                                    Gặp mặt cán bộ viên chức nghỉ hưu năm 2019
+                                </div>
+                                <p class=" card-text">
+                                    (TLU) Nhằm tri ân những cống hiến và đóng góp của các cán bộ viên chức đối với sự nghiệp xây dựng và phát triển của Nhà Trường, sáng 24/12, Trường Đại học Thủy lợi tổ chức buổi Gặp mặt các cán bộ...
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-top-img">
+                                <img src="imgs/image011.jpg" alt="">
+                            </div>
+                            <div class="card-body">
+                                <div class="card-title">
+                                    Khai mạc đợt khảo sát chính thức phục vụ đánh giá ngoài 4 chương trình đào tạo
+                                </div>
+                                <p class=" card-text">
+                                    (TLU) – Ngày 26/12, Trường Đại học Thủy lợi diễn ra Khai mạc đợt khảo sát chính thức phục vụ đánh giá ngoài 4 chương trình đào tạo gồm Công nghệ
+                                </p>
+                            </div>
+                        </div>
+                    </div>                
+            </div>
+            
+        </div>
+
     </main>
-    <button id="back-to-top" onclick="topFunction()">
-        <img src="imgs/arow-up.png" alt="">
-    </button>
     <footer class="page-footer">        
         <div class="container">
             <div class="row">
@@ -79,16 +105,17 @@
                         Email: <a href="#"> trungtamdh2@tlu.edu.vn</a></p>
                     </div>
                 </div>
-                <div class="copyright">
-                    © 2019 - TRƯỜNG ĐẠI HỌC THỦY LỢI
-                </div>
-                <div class="socials">
-                    
+                <div class="col-md-12 mt-4">
+                    <div class="copyright">
+                        © 2019 - TRƯỜNG ĐẠI HỌC THỦY LỢI
+                    </div>
+                    <div class="socials">
+                        
+                    </div>
                 </div>
             </div>
         </div>
     
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>

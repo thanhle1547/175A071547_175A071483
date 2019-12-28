@@ -173,11 +173,11 @@ nav{
     margin-top: 15px;
 }
 
-.data-table tr {
+.data-table tr, .data-row {
     height: 50px;
     border-bottom: 1px solid #B7B7B7;
 }
-.data-table tr:not(:first-child):hover {
+.data-table tr:not(:first-child):hover, .data-row:not(:first-child):hover {
     background-color: #FDF2F2;
     border-bottom: none;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.25);
@@ -192,10 +192,51 @@ nav{
     vertical-align: middle;
 }
 
-.form-control {
+.data-table button {
+    border-radius: 50px;
+    height: 36px;
+    width: 36px;
+    background-color: transparent;
+}
+
+.data-table button:hover {
+    background-color: #E1E1E1;
+}
+
+.btn-edit::before, .btn-delete::before{
+    font-family: "Material Icons Round";
+    color: #777272;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+}
+
+.row-edit button {
+    visibility: hidden;
+}
+.data-row:hover .row-edit button {
+    visibility: visible;
+}
+
+.btn-edit::before {
+    content: '\e3c9';
+}
+.btn-edit:hover::before {
+    color: #6777F7;
+}
+
+.btn-delete::before {
+    content: '\e872';
+}
+.btn-delete:hover::before {
+    color: #FF5757;
+}
+
+.control-group {
     margin: auto;
 }
-.form-control label {
+.control-group label {
     font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.25rem;
     color: #6777F7;
@@ -203,7 +244,7 @@ nav{
     display: block;
     margin-bottom: 20px;
 }
-.form-control input {
+.control-group input {
     border: 1px solid rgba(0, 0, 0, .03);
     border-radius: 8px;
     background-color: #FDEEEE;

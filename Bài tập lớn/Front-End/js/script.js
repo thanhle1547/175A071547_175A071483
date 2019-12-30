@@ -46,4 +46,44 @@ $(document).ready(function(){
     else
       nav_right.addClass('hide');
   });
+
+  // Hiện ds các giá trị của select box
+  var select_box = $('.select-box');
+  select_box.click(function(){
+    // ẩn các select box khác
+    $(document).click();
+    event.stopPropagation();
+    // console.log($(this));
+    
+    $(this).find('.values-list').toggleClass('show');
+    $(this).find('.values-container').toggleClass('show show-after');
+  });
+
+  // Lấy gtri được chọn trong select box
+  var val = $('.val');
+  val.click(function(){
+    event.stopPropagation();
+    let text = $(this).text();
+    // console.log(text);
+    let selected_val = $(this).closest('.select-box').find('.selected-value');
+    // console.log(selected_val);
+    
+    selected_val.text(text);
+    selected_val.attr('title', text);
+
+    // https://stackoverflow.com/a/16770692
+    $(document).click();
+  });
+
+  // Ẩn các gtri của select box khi click ở ngoài
+  $(document).click(function(e) {
+    let target = $(e.target);
+    // console.log(target);
+
+    if (!target.is('.val'))
+    {
+      $(this).find('.values-list').removeClass('show');
+      $(this).find('.values-container').removeClass('show show-after');
+    }
+  });
 });

@@ -112,7 +112,7 @@ nav{
     border-bottom-right-radius: 50px;
 }
 .come-back:hover, .submenu li:hover{ background-color: rgba(0, 0, 0, .05); }
-.submenu li.active { background-color: rgba(0, 0, 0, .03); }
+.submenu .active { background-color: rgba(0, 0, 0, .03); }
 
 .come-back, .submenu li {
     font-family: "Open Sans", sans-serif;
@@ -151,7 +151,7 @@ nav{
     font-size: 48px;
     font-weight: 500;
     color: #6777F7;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 .content .title::after{
     content: '';
@@ -203,7 +203,16 @@ nav{
     background-color: #E1E1E1;
 }
 
-.btn-edit::before, .btn-delete::before{
+.row-edit { text-align: center; }
+.row-edit button {
+    visibility: hidden;
+}
+.data-row:hover .row-edit button {
+    visibility: visible;
+}
+
+/* Button Function */
+.btn-add::before, .btn-edit::before, .btn-delete::before{
     font-family: "Material Icons Round";
     color: #777272;
     font-size: 1.5rem;
@@ -212,11 +221,11 @@ nav{
     left: 6px;
 }
 
-.row-edit button {
-    visibility: hidden;
-}
-.data-row:hover .row-edit button {
-    visibility: visible;
+.btn-add { padding-left: 35px; }
+.btn-add::before {
+    content: '\e145';
+    color: inherit;
+    left: 8px;
 }
 
 .btn-edit::before {
@@ -264,6 +273,3 @@ nav{
     width: 45px;
     font-size: 1.5rem;
 }
-
-.show { display: block; }
-.hide { display: none; }

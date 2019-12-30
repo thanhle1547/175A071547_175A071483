@@ -79,6 +79,7 @@ nav{
     position: relative;
     display: inline-block;
 }
+.nav-right.hide { display: none; }
 .nav-right::after{
     content: '';
     height: 100vh;
@@ -106,6 +107,7 @@ nav{
     background-color: rgba(191, 102, 152, 0.15);
 }
 .submenu { display: none; }
+.submenu.show { display: inherit; }
 .submenu li{
     margin-right: 12px;
     border-top-right-radius: 50px;

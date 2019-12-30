@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,15 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/template.css">
     <link rel="stylesheet" href="css/app.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
-    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <script src="js/jquery-3.4.1.min.js"></script>
 </head>
+
 <body>
     <header class="app-header">
         <input type="checkbox" id="btn-menu">
         <h3 class="title ">
-            Ngành học
+            Tài khoản Giảng Viên
         </h3>
         <div class="account">
             <img src="" alt="" class="avatar">
@@ -29,12 +30,21 @@
                 <ul>
                     <li>
                         <h5 class="submenu-title">
+                            Quản Lí Tài Khoản
+                        </h5>
+                        <ul class="submenu show">
+                            <li><a href="admin.html">Tài khoản nhân viên</a></li>
+                            <li class="active">Tài khoản giảng viên</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h5 class="submenu-title">
                             Quản Lí
                         </h5>
                         <ul class="submenu show">
-                            <li class="active">Ngành học</li>
-                            <li ><a href="app.html">Môn Học</a></li>
-                            <li><a href="lophocphan.html">Lớp Học Phần</a> </li>
+                            <li><a href="nghanhhoc.html">Ngành học</a></li>
+                            <li><a href="app.html">Môn Học</a></li>
+                            <li><a href="lophocphan.html">Lớp Học Phần </a></li>
                             <li><a href="GiangVien.html">Giảng Viên</a></li>
                         </ul>
                     </li>
@@ -44,48 +54,35 @@
         <div class="content">
             <div class="content-header">
                 <h1 class="title">
-                    Ngành học
+                    Tài khoản giảng viên
                 </h1>
-                <div class="form-control">
-                    <div class="form-group">
-                        <div class="select-box">
-                            <div class="selected-value"></div>
-                            <div class="values-list">
-                                <div class="values-container">
-                                    <div class="val">
-                                        <span>Công nghệ web</span>
-                                    </div>
-                                    <div class="val">
-                                        <span>Hệ thống thông tin</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <label>Môn học</label>
-                    </div>
+                <div class="control-group">
+                    <button class="btn btn-outline-primary btn-rounded">Thêm</button>
+                    <button class="btn btn-outline-primary btn-rounded">Nhập từ file excel</button>
                 </div>
-                <button class="btn btn-outline-primary btn-rounded btn-add">Thêm</button>
             </div>
-    
-            </button>
             <table class="data-table">
-                <tr>
+                <tr class="data-row">
                     <td>STT</td>
-                    <td>Mã Nghành</td>
-                    <td>Tên Nghành</td>
-                    <td>Chi Tiết</td>
+                    <td>Mã giảng viên</td>
+                    <td>Họ tên</td>
                     <td></td>
                 </tr>
-                <tr>
+                <tr class="data-row">
                     <td>abv</td>
                     <td>fdgg</td>
                     <td>fff</td>
-                    <td>aaa</td>
-                    <td></td>
+                    <td class="row-edit">
+                        <button class="btn btn-rounded btn-edit">
+                        </button>
+                        <button class="btn btn-rounded btn-delete">
+                        </button>
+                    </td>
                 </tr>
             </table>
         </div>
     </div>
     <script src="./js/script.js"></script>
 </body>
+
 </html>

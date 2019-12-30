@@ -17,57 +17,46 @@
     <header class="app-header">
         <input type="checkbox" id="btn-menu">
         <h3 class="title ">
-            Tài khoản nhân viên
+            Lịch trình giảng dạy
         </h3>
-        <div class="account">
-            <img src="" alt="" class="avatar">
-            <span class="name">Lê Minh Thành</span>
+        <div class="account" style="margin: auto">
+            <button class="btn btn-outline-primary btn-rounded-corner btn-login">
+                <a href="login.html">Đăng Nhập</a>
+            </button>
         </div>
     </header>
     <div class="app-body">
-        <aside class="nav-right">
+        <aside class="nav-right hide">
             <nav>
                 <ul>
+                    <li class="come-back"><a href="index.html">Trang chủ</a></li>
                     <li>
                         <h5 class="submenu-title">
-                            Quản Lí
+                            Lịch trình
                         </h5>
                         <ul class="submenu show">
-                            <li class="active">Lịch trình</li class="active">
-                            <li>Kế hoạch</li>
+                            <li><a href="schedule.html">Kế hoạch giảng dạy</a></li>
+                            <li class="active">Lịch trình giảng dạy</li>
                         </ul>
                     </li>
                 </ul>
             </nav>
         </aside>
         <div class="content">
-            <div class="content-header">
-                <h1 class="title">
-                    Lịch trình
-                </h1>
-                <div class="control-group">
-                    <label for="">Môn học</label>
-                    <select name="" id=""></select>
-                    <button class="btn btn-outline-primary btn-rounded btn-add">Thêm</button>
-                </div>
+            <div class="control-group">
+                <label>Thông tin giảng viên (họ/tên)</label>
+                <input type="text" class="search-field">
             </div>
             <table class="data-table">
-                <tr class="data-row">
-                    <td>STT</td>
-                    <td>Bài học</td>
-                    <td>Thời gian</td>
-                    <td></td>
+                <tr>
+                    <td>Mã Môn</td>
+                    <td>Tên Môn</td>
+                    <td>Thực Hành</td>
                 </tr>
-                <tr class="data-row">
+                <tr>
                     <td>abv</td>
                     <td>fdgg</td>
                     <td>fff</td>
-                    <td class="row-edit">
-                        <button class="btn btn-rounded btn-edit">
-                        </button>
-                        <button class="btn btn-rounded btn-delete">
-                        </button>
-                    </td>
                 </tr>
             </table>
         </div>

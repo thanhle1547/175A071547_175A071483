@@ -146,6 +146,8 @@ body {
 .card:hover{
     box-shadow: 0 2px 8px -10px rgba(0, 0, 0, .05), 0 3px 14px rgba(0, 0, 0, .16);
     border-radius: 11px;
+    transform: translateY(-8px);
+    transition: transform .25s ease-in-out;
 }
 .card:hover .card-top-img {
     border: 0;

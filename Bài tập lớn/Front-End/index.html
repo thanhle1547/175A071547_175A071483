@@ -15,27 +15,31 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/owl.carousel.js"></script>
       <style>
-          .owl-nav {
-              position: absolute;
-              left: 0;
-              right: 0;
-              top: 35%;
-          }
-          .owl-prev, .owl-next {
-              position: absolute;
-              filter: drop-shadow(0 0 6px rgba(0, 0, 0, .4));
-          }
+            .owl-nav {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 35%;
+            }
+            .owl-prev, .owl-next {
+                position: absolute;
+                filter: drop-shadow(0 0 6px rgba(0, 0, 0, .4));
+            }
 
-          .owl-theme .owl-nav [class*=owl-]:hover {
-              background-color: transparent;
-              filter: drop-shadow(0 0 6px rgba(0, 0, 0, .4));
-          }
+            .owl-theme .owl-nav [class*=owl-]:hover {
+                background-color: transparent;
+                filter: drop-shadow(0 0 6px rgba(0, 0, 0, .4));
+            }
 
-          .owl-prev { left: 0; }
-          .owl-next { right: 0; }
+            .owl-prev { left: 0; }
+            .owl-next { right: 0; }
 
-          @media screen and (max-width: 992px) {
-              .owl-nav { display: none; }
+            @media screen and (max-width: 992px) {
+                .owl-nav { display: none; }
+            }
+
+            @media screen and (max-width: 576px) {
+                .owl-carousel { display: none; }
             }
       </style>
 </head>

@@ -1,6 +1,6 @@
 .app-header{
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     padding: 0 20px;
     width: 100%;
     height: 48px;
@@ -18,7 +18,7 @@
     height: 36px;
     color: #707070;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-end;
 }
 .account .name{
@@ -75,9 +75,11 @@ nav{
 }
 .nav-right{
     width: 280px;
+    height: 92vh;
     padding-top: 24px;
     position: relative;
     display: inline-block;
+    background-color: white;
 }
 .nav-right.hide { display: none; }
 .nav-right::after{
@@ -150,7 +152,7 @@ nav{
 .content .title{
     display: inline-block;
     font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 48px;
+    font-size: 4vmax;
     font-weight: 500;
     color: #6777F7;
     margin-bottom: 20px;
@@ -160,7 +162,7 @@ nav{
     display: block;
     height: 3px;
     background-color: #6777F7;
-    width: 10%;
+    width: 35%;
     margin-top: 20px;
 }
 
@@ -168,6 +170,11 @@ nav{
     cursor: pointer;
 }
 
+.data-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 12px;
+}
 .data-table {
     width: 100%;
     font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -227,6 +234,7 @@ nav{
 .btn-add::before {
     content: '\e145';
     color: inherit;
+    top: 5px;
     left: 8px;
 }
 
@@ -274,4 +282,26 @@ nav{
     height: 45px;
     width: 45px;
     font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .app-header {}
+    .nav-right {
+        position: fixed;
+        z-index: 10;
+        overflow-y: scroll;
+    }
+    .account { display: none; }
+
+    .content { padding: 45px 55px; }
+    .content .title::after { height: 2px; }
+}
+
+@media screen and (max-width: 576px) {
+    .content { padding: 50px 40px; }
+}
+
+
+@media screen and (max-width: 425px) {
+    .content { padding: 40px 30px; }
 }

@@ -1,0 +1,307 @@
+.app-header{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    padding: 0 20px;
+    width: 100%;
+    height: 48px;
+    position: fixed;
+    background-color: white;
+    transition: box-shadow .2s ease-out;
+    z-index: 10;
+}
+.app-header .title{
+    font-family: Roboto, sans-serif; 
+    color: #646464;
+    margin: auto;
+}
+.account{
+    height: 36px;
+    color: #707070;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.account .name{
+    color: #A680F9;
+    cursor: pointer;
+}
+.account .name::after {
+    content: '\e313';
+    font-family: "Material Icons Round";
+    vertical-align: middle;
+    font-size: 1.5rem;
+    padding-left: 7px;
+}
+.account .avatar {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background-color: #EBEBEB;
+    border-radius: 28px;
+    margin-right: 12px;
+}
+#btn-menu{
+    height: 36px;
+    width: 36px;
+    margin: auto 0;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+#btn-menu:not(:checked):before {
+    content: '\e5d2';
+    font-family: "Material Icons Round";
+    font-size: 2.2rem;
+    color: var(--primary);
+    vertical-align: middle;
+}
+#btn-menu:checked::before {
+    content: '\e5cd';
+    font-family: "Material Icons Round";
+    font-size: 2.2rem;
+    color: var(--red);
+    vertical-align: middle;
+}
+
+.app-body {
+    /* display: grid;
+    grid-template-columns: 280px calc(100% - 280px); */
+    display: flex;
+    padding-top: 48px;
+}
+
+nav{
+    /* background-color: #EC9ECA; */
+
+}
+.nav-right{
+    width: 280px;
+    height: 92vh;
+    padding-top: 24px;
+    position: relative;
+    display: inline-block;
+    background-color: white;
+}
+.nav-right.hide { display: none; }
+.nav-right::after{
+    content: '';
+    height: 100vh;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    right: 0;
+    top: 25px;
+}
+.submenu-title{
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #EC9ECA;
+    padding: 8px 0 8px 30px;
+}
+.submenu-title::after {
+    content: '\e313';
+    font-family: "Material Icons Round";
+    font-size: 1rem;
+    position: absolute;
+    right: 15px;
+}
+.submenu-title:hover {
+    background-color: rgba(191, 102, 152, 0.15);
+}
+.submenu { display: none; }
+.submenu.show { display: inherit; }
+.submenu li{
+    margin-right: 12px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+.come-back:hover, .submenu li:hover{ background-color: rgba(0, 0, 0, .05); }
+.submenu .active { background-color: rgba(0, 0, 0, .03); }
+
+.come-back, .submenu li {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #707A82;
+    padding: 12px;
+    padding-left: 55px;
+    position: relative;
+}
+
+.come-back::before {
+    content: '\e314';
+    font-family: "Material Icons Round";
+    font-size: 1.9rem;
+    color: #551a8b;
+    position: absolute;
+    left: 20px;
+    top: 5px;
+}
+
+/* .content .title{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+} */
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    padding: 70px 100px;
+}
+.content .title{
+    display: inline-block;
+    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 4vmax;
+    font-weight: 500;
+    color: #6777F7;
+    margin-bottom: 20px;
+}
+.content .title::after{
+    content: '';
+    display: block;
+    height: 3px;
+    background-color: #6777F7;
+    width: 35%;
+    margin-top: 20px;
+}
+
+.submenu-title:hover, .submenu li:hover {
+    cursor: pointer;
+}
+
+.data-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 12px;
+}
+.data-table {
+    width: 100%;
+    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.125rem;
+    margin-top: 15px;
+}
+
+.data-table tr, .data-row {
+    height: 50px;
+    border-bottom: 1px solid #B7B7B7;
+}
+.data-table tr:not(:first-child):hover, .data-row:not(:first-child):hover {
+    background-color: #FDF2F2;
+    border-bottom: none;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.data-table th {
+    font-weight: 500;
+}
+
+.data-table th, .data-table td {
+    padding-left: 18px;
+    vertical-align: middle;
+}
+
+.data-table button {
+    border-radius: 50px;
+    height: 36px;
+    width: 36px;
+    background-color: transparent;
+}
+
+.data-table button:hover {
+    background-color: #E1E1E1;
+}
+
+.row-edit { text-align: center; }
+.row-edit button {
+    visibility: hidden;
+}
+.data-row:hover .row-edit button {
+    visibility: visible;
+}
+
+/* Button Function */
+.btn-add::before, .btn-edit::before, .btn-delete::before{
+    font-family: "Material Icons Round";
+    color: #777272;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+}
+
+.btn-add { padding-left: 35px; }
+.btn-add::before {
+    content: '\e145';
+    color: inherit;
+    top: 5px;
+    left: 8px;
+}
+
+.btn-edit::before {
+    content: '\e3c9';
+}
+.btn-edit:hover::before {
+    color: #6777F7;
+}
+
+.btn-delete::before {
+    content: '\e872';
+}
+.btn-delete:hover::before {
+    color: #FF5757;
+}
+
+.control-group {
+    margin: auto;
+}
+.control-group label {
+    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.25rem;
+    color: #6777F7;
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+}
+.control-group input {
+    border: 1px solid rgba(0, 0, 0, .03);
+    border-radius: 8px;
+    background-color: #FDEEEE;
+    text-align: center;
+    color: #2637B7;
+    font-size: 1.125rem;
+    height: 40px;
+    width: 330px;
+}
+
+.search-field::after {
+    content: '\e8b6';
+    font-family: "Material Icons Round";
+    position: absolute;
+    right: 0;
+    height: 45px;
+    width: 45px;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .app-header {}
+    .nav-right {
+        position: fixed;
+        z-index: 10;
+        overflow-y: scroll;
+    }
+    .account { display: none; }
+
+    .content { padding: 45px 55px; }
+    .content .title::after { height: 2px; }
+}
+
+@media screen and (max-width: 576px) {
+    .content { padding: 50px 40px; }
+}
+
+
+@media screen and (max-width: 425px) {
+    .content { padding: 40px 30px; }
+}

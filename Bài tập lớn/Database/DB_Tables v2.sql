@@ -14,7 +14,7 @@ Create Table MonHoc (
 );
 
 Create Table ChucVu (
-    MaCV tinyint(10) UNSIGNED Not null,
+    MaCV tinyint(10) UNSIGNED Not null Primary key,
     ChucVu varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null
 );
 Create Table NguoiDung (
@@ -59,7 +59,7 @@ Create Table ThoiGian (
 );
 Create Table Tiet (
 	MaTiet tinyint(2) UNSIGNED Not null Primary key,
-	ThoiGian time Not null,
+	ThoiGian time Not null
 );
 Create Table DiaDiem
 (
@@ -77,7 +77,7 @@ Create Table LopHocPhan (
 	TG_KetThuc date DEFAULT null,
 -- lớp thực hành ko cần phải điền số tín chỉ
     SoTinChi tinyint(1) UNSIGNED null,
-	LoaiLop ENUM('lý thuyết', 'thảo luận', 'thực hành') Not null CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+	LoaiLop ENUM('lý thuyết', 'thảo luận', 'thực hành') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null,
 	Nhom tinyint(1) UNSIGNED Not null, -- 0 là lớp lý thuyết, lớp thực hành bắt đầu từ 1
 	Foreign Key (MaGV_MH) References GV_MonHoc(MaGV_MH),
 	Foreign Key (MaLop) References Lop(MaLop),
@@ -88,9 +88,9 @@ Create Table ChiTietLHP (
 	Thu tinyint(1) UNSIGNED Not null,
 -- so với các bản ghi khác có bị trùng địa điểm/tiết ko  ->> trigger insert, update
 	MaDD tinyint UNSIGNED Not null, 
-	MaTiet varchar(10) Not null, -- là 1 chuỗi vd: '7,8,9', cắt ra để kiểm tra
-	Foreign key (MaDD) References DiaDiem(MaDD),
-	Foreign key (MaTiet) References Tiet(MaTiet)
+	Tiet varchar(10) Not null, -- là 1 chuỗi vd: '7,8,9', cắt ra để kiểm tra
+	Foreign key (MaLHP) References LopHocPhan(MaLHP),
+	Foreign key (MaDD) References DiaDiem(MaDD)
 );
 
 Create Table KeHoach (
@@ -99,7 +99,7 @@ Create Table KeHoach (
 -- lớp có thời gian học kéo dài trong cả 2 giai đoạn
     SoTuan tinyint(2) UNSIGNED Not null,
 	SoTiet tinyint(2) UNSIGNED Not null,
-	Foreign Key (MaLHP) References LopHocPhan(MaLHP),
+	Foreign Key (MaLHP) References LopHocPhan(MaLHP)
 );
 Create Table ChiTiet_KH (
 	MaKH tinyint(100) UNSIGNED Not null Primary key,
@@ -117,15 +117,14 @@ Create Table LichTrinh (
 	Tuan tinyint(2) UNSIGNED DEFAULT null,
 	Ngay date DEFAULT null,
 	MaDD tinyint UNSIGNED DEFAULT null,
-	MaTiet varchar(10) DEFAULT null,
+	Tiet varchar(10) DEFAULT null,
 	NoiDung varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci, -- nd theo thực tế
 	TinhHinhLop varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ,
-	TrangThai ENUM('nghỉ', 'học bù') DEFAULT null CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-	MaGV tinyint(10) DEFAULT null, -- cho lóp học bù
+	TrangThai ENUM('nghỉ', 'học bù') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT null,
+	MaGV tinyint(10) UNSIGNED DEFAULT null, -- cho lóp học bù
 	Foreign Key (MaKH) References KeHoach(MaKH),
 	Foreign key (MaDD) References DiaDiem(MaDD),
-	Foreign key (MaTiet) References Tiet(MaTiet),
-	Foreign key (MaGV) References GiangVien(MaGV),
+	Foreign key (MaGV) References GiangVien(MaGV)
 );
 
 

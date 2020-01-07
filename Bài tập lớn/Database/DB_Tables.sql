@@ -14,7 +14,8 @@ Create Table MonHoc (
 	MaMon varchar(10) Not null Primary key,
 	MaNganh varchar(10) Not null,
 	TenMon varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null,
-	SoTinChi tinyint UNSIGNED,
+	SoTinChi tinyint(1) UNSIGNED,
+	SoTiet tinyint(2) UNSIGNED,
 	ThucHanh boolean,
 	Foreign Key (MaNganh) References NganhHoc(MaNganh)
 );
@@ -78,6 +79,7 @@ Create Table LichTrinh (
 	Foreign Key (MaLHP) References LopHocPhan(MaLHP),
 	Foreign key (MaDD) References DiaDiem(MaDD)
 );
+
 
 
 Create Table NhanVien (

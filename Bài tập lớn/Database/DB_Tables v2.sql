@@ -3,24 +3,24 @@ Create Database DH_ThuyLoi
 */
 Create Table NganhHoc (
 	MaNganh varchar(10) Not null Primary key,
-	TenNghanh varchar(50)Not null, -- utf8 -> utf8mb4
+	TenNghanh varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null, -- utf8 -> utf8mb4
 	ChiTiet varchar(1000)
 );
 Create Table MonHoc (
 	MaMon varchar(10) Not null Primary key,
 	MaNganh varchar(10) Not null,
-	TenMon varchar(30)Not null,
+	TenMon varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null,
 	Foreign Key (MaNganh) References NganhHoc(MaNganh)
 );
 
 Create Table ChucVu (
     MaCV tinyint(10) UNSIGNED Not null,
-    ChucVu varchar(10)Not null
+    ChucVu varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null
 );
 Create Table NguoiDung (
 	MaND tinyint(20) UNSIGNED Not null Primary key AUTO_INCREMENT,
-	HoTen varchar(50)Not null,
-	GioiTinh varchar(3) ,
+	HoTen varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null,
+	GioiTinh varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
 	SDT varchar(10),
     Username varchar(20) Not null,
 	Password varchar(64) Not null, -- using SHA-256
@@ -46,7 +46,7 @@ Create Table GV_MonHoc (
 );
 Create Table Lop (
 	MaLop tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
-	TenLop varchar(30)Not null
+	TenLop varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null
 );
 
 Create Table ThoiGian (
@@ -77,7 +77,7 @@ Create Table LopHocPhan (
 	TG_KetThuc date DEFAULT null,
 -- lớp thực hành ko cần phải điền số tín chỉ
     SoTinChi tinyint(1) UNSIGNED null,
-	LoaiLop Not null ,
+	LoaiLop ENUM('lý thuyết', 'thảo luận', 'thực hành') Not null CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
 	Nhom tinyint(1) UNSIGNED Not null, -- 0 là lớp lý thuyết, lớp thực hành bắt đầu từ 1
 	Foreign Key (MaGV_MH) References GV_MonHoc(MaGV_MH),
 	Foreign Key (MaLop) References Lop(MaLop),
@@ -107,7 +107,7 @@ Create Table ChiTiet_KH (
 	Tuan tinyint(2) UNSIGNED Not null,
 -- kiểm tra ngày có đúng vào thứ như ChiTietLHP
 	Ngay date Not null,
-	NoiDung varchar(500) , -- nd theo kế hoạch
+	NoiDung varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci, -- nd theo kế hoạch
 -- so với tổng số tiết	->> trigger insert, update
 	SoTiet tinyint(1) UNSIGNED,
 	Foreign key (MaKH) References KeHoach(MaKH)
@@ -118,9 +118,9 @@ Create Table LichTrinh (
 	Ngay date DEFAULT null,
 	MaDD tinyint UNSIGNED DEFAULT null,
 	MaTiet varchar(10) DEFAULT null,
-	NoiDung varchar(500), -- nd theo thực tế
-	TinhHinhLop varchar(500),
-	TrangThai DEFAULT null ,
+	NoiDung varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci, -- nd theo thực tế
+	TinhHinhLop varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ,
+	TrangThai ENUM('nghỉ', 'học bù') DEFAULT null CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
 	MaGV tinyint(10) DEFAULT null, -- cho lóp học bù
 	Foreign Key (MaKH) References KeHoach(MaKH),
 	Foreign key (MaDD) References DiaDiem(MaDD),
@@ -132,14 +132,14 @@ Create Table LichTrinh (
 
 Create Table DanhMucBV (
 	MaDM tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
-	TenDM varchar(120)Not null
+	TenDM varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null
 );
 Create Table BaiViet (
 	MaBai tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
-	TieuDe varchar(120)Not null,
-	TomTat varchar(500) ,
+	TieuDe varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null,
+	TomTat varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
 	HinhAnh mediumblob, --  ~ 16 megabytes
-	NoiDung varchar(21844)Not null,
+	NoiDung varchar(21844) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null,
 	MaDM tinyint UNSIGNED Not null,
 	Foreign Key (MaDM) References DanhMucBV(MaDM)
 );

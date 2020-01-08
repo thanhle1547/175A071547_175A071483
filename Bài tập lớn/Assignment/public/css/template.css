@@ -88,6 +88,14 @@ body {
     background-color: var(--primary);
 }
 
+.btn-white-primary {
+    color: var(--primary);
+}
+
+.btn-white-primary:hover {
+    color: var(--primary);
+}
+
 .btn-primary:hover {
     background-color: var(--primary);
     box-shadow: 0 1px 8px rgba(141, 103, 202, 0.45), 0 1px 3px rgba(141, 103, 202, 0.5);
@@ -186,23 +194,39 @@ body {
     flex: 0;
     flex-direction: column;
 }
+.form-group-inline {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 50%;
+    margin: 30px 0;
+}
+
 .form-control .form-group { margin-right: 40px; }
-.form-group label, .form-control label {
+
+.form-group label, .form-control label, .form-group-inline label {
     font-family: "Open Sans", sans-serif;
     color: var(--blue);
     margin-bottom: 16px;
 }
 .form-group label { font-size: 1.5rem; }
-.form-control label { font-size: 1.25rem; }
-.form-group input {
+.form-control label, .form-group-inline label { font-size: 1.25rem; }
+.form-group-inline label {
+    margin: 0;
+    width: 50%;
+}
+.form-group input, .form-group-inline input {
     display: block;
-    height: 45px;
     width: 100%;
     border: 1.5px solid #CAC8C8;
     border-radius: 10px;
     padding: 0 18px;
     font-size: 1.25rem;
 }
+.form-group input { height: 45px; }
+.form-group-inline input { height: 40px; }
+
 .form-group input:not(:placeholder-shown), .form-group input:not([value]), .form-group input:empty,
 .form-group input:not(:focus) {
     border: 1.5px solid #CAC8C8;

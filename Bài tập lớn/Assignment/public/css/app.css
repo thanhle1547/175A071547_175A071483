@@ -173,6 +173,11 @@ nav{
     margin-top: 20px;
 }
 
+.content-form form {
+    width: 65%;
+    margin: auto;
+}
+
 .submenu-title:hover, .submenu li:hover {
     cursor: pointer;
 }
@@ -228,7 +233,7 @@ nav{
 }
 
 /* Button Function */
-.btn-add::before, .btn-edit::before, .btn-delete::before{
+.btn-plus::before, .btn-edit::before, .btn-delete::before, .btn-back::before{
     font-family: "Material Icons Round";
     color: #777272;
     font-size: 1.5rem;
@@ -237,12 +242,15 @@ nav{
     left: 6px;
 }
 
-.btn-add { padding-left: 35px; }
-.btn-add::before {
-    content: '\e145';
+.btn-plus, .btn-back { padding-left: 35px; }
+.btn-plus::before, .btn-back::before {
     color: inherit;
     top: 5px;
     left: 8px;
+}
+
+.btn-plus::before{
+    content: '\e145';
 }
 
 .btn-edit::before {
@@ -257,6 +265,10 @@ nav{
 }
 .btn-delete:hover::before {
     color: #FF5757;
+}
+
+.btn-back::before {
+    content: '\e314';
 }
 
 .control-group {

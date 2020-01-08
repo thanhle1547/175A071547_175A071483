@@ -78,6 +78,7 @@ $(document).ready(function(){
     
     selected_val.text(text);
     selected_val.attr('title', text);
+    selected_val.attr('data-id', $(this).attr('data-id'));
 
     // https://stackoverflow.com/a/16770692
     $(document).click();
@@ -93,5 +94,30 @@ $(document).ready(function(){
       $(this).find('.values-list').removeClass('show');
       $(this).find('.values-container').removeClass('show show-after');
     }
+  });
+
+  // hiện content-form khi btn-plus được click
+  var content_header = $('.content-header');
+  var data_table = $('.data-table');
+  var content_form = $('.content-form');
+  $('.btn-plus').click(function(){
+    if (content_form.hasClass('hide'))
+    {
+      content_header.hide();
+      data_table.hide();
+      content_form.removeClass('hide');
+    }
+    else {
+      content_header.show();
+      data_table.show();
+      content_form.addClass('hide');
+    }
+  });
+
+  // ẩn content-form khi btn-plus được click
+  $('.btn-back').click(function(){
+    content_form.addClass('hide');
+    content_header.show();
+    data_table.show();
   });
 });

@@ -6,8 +6,8 @@ class View_Loader {
         extract($data);
 
         ob_start();
-        require_once PATH_APP . '/view/' . $view . '.php';
-        $this->content = ob_get_clean();
+        include_once PATH_APP . '/Views/' . $view . '.php';
+        $this->content[] = ob_get_clean();
     }
 
     public function render()

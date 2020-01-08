@@ -19,6 +19,7 @@ function topFunction() {
 } */
 
 $(document).ready(function(){
+  /* // Đổ bóng header khi cuộn trang
   var app_header = $('.app-header');
   $(window).scroll(function(e){
     if(app_header.offset().top !== 0) {
@@ -27,24 +28,31 @@ $(document).ready(function(){
     }
     else
       app_header.removeClass('shadow');
-  });
+  }); */
 
   var submenu_title = $('.submenu-title');
   submenu_title.click(function(){
-    let submenu = submenu_title.next();
+    let submenu = $(event.target).next();
     if (submenu.hasClass('show'))
       submenu.removeClass('show');
     else
       submenu.addClass('show');
   });
 
+  var header = $('header');
   var btn_menu = $('#btn-menu');
   var nav_right = $('.nav-right');
   btn_menu.click(function(){
     if (!btn_menu.is(':checked'))
+    {
+      header.addClass('shadow');
       nav_right.removeClass('hide');
+    }
     else
+    {
+      header.removeClass('shadow');
       nav_right.addClass('hide');
+    }
   });
 
   // Hiện ds các giá trị của select box

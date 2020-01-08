@@ -1,46 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/template.css">
-    <link rel="stylesheet" href="css/app.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
-    rel="stylesheet">
-    <script src="js/jquery-3.4.1.min.js"></script>
-</head>
-<body>
-    <header class="app-header shadow">
-        <input type="checkbox" id="btn-menu">
-        <h3 class="title ">
-            Môn Học
-        </h3>
-        <div class="account">
-            <img src="" alt="" class="avatar">
-            <span class="name">Lê Minh Thành</span>
-        </div>
-    </header>
-    <div class="app-body">
-        <aside class="nav-right">
-            <nav>
-                <ul>
-                    <li>
-                        <h5 class="submenu-title">
-                            Quản Lí
-                        </h5>
-                        <ul class="submenu show">
-                            <li><a href="nghanhhoc.html">Ngành học</a></li>
-                            <li class="active">Môn Học</li>
-                            <li><a href="lophocphan.html">Lớp Học Phần </a></li>
-                            <li><a href="GiangVien.html">Giảng Viên</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
         <div class="content">
             <div class="content-header">
                 <h1 class="title">
@@ -66,7 +23,7 @@
                     <div class="form-group form-action">
                         <button class="btn btn-outline-primary btn-rounded btn-add">Thêm</button>
                     </div>
-                </div>   
+                </div>
             </div>
             </button>
             <table class="data-table">
@@ -86,7 +43,8 @@
                 </tr>
             </table>
         </div>
-    </div>
-    <script src="./js/script.js"></script>
-</body>
-</html>
+        </div>
+        <script src="../public/js/script.js"></script>
+        </body>
+
+        </html>

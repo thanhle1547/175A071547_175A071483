@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/template.css">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="../public/css/reset.css">
+    <link rel="stylesheet" href="../public/css/template.css">
+    <link rel="stylesheet" href="../public/css/app.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="../public/js/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
-    <header class="app-header">
+    <header class="app-header shadow">
         <input type="checkbox" id="btn-menu">
         <h3 class="title ">
             Tài khoản nhân viên

@@ -59,7 +59,8 @@ Create Table ThoiGian (
 );
 Create Table Tiet (
 	MaTiet tinyint(2) UNSIGNED Not null Primary key,
-	ThoiGian time Not null
+	TG_BatDau time Not null,
+	TG_KetThuc time Not null
 );
 Create Table DiaDiem
 (

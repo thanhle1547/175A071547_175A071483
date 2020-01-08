@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 07, 2020 lúc 07:26 PM
+-- Thời gian đã tạo: Th1 08, 2020 lúc 08:02 PM
 -- Phiên bản máy phục vụ: 10.4.8-MariaDB
 -- Phiên bản PHP: 7.3.11
 
@@ -103,6 +103,81 @@ INSERT INTO `chucvu` (`MaCV`, `ChucVu`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc đóng vai cho view `ct_kehoach`
+-- (See below for the actual view)
+--
+CREATE TABLE `ct_kehoach` (
+`MaKH` tinyint(100) unsigned
+,`Tuan` tinyint(2) unsigned
+,`Ngay` date
+,`NoiDung` varchar(500)
+,`SoTiet` tinyint(1) unsigned
+,`MaLHP` tinyint(3) unsigned
+,`SoTuan` tinyint(2) unsigned
+,`TongSoTiet` tinyint(2) unsigned
+);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc đóng vai cho view `ct_lichtrinh`
+-- (See below for the actual view)
+--
+CREATE TABLE `ct_lichtrinh` (
+`MaKH` tinyint(100) unsigned
+,`MaDD` tinyint(3) unsigned
+,`TenDD` varchar(20)
+,`Tiet` varchar(2)
+,`NoiDung` varchar(500)
+,`TinhHinhLop` varchar(500)
+,`TrangThai` enum('nghỉ','học bù')
+,`MaGV` tinyint(10) unsigned
+,`SoTuan` tinyint(2) unsigned
+,`TongSoTiet` tinyint(2) unsigned
+,`MaNganh` varchar(10)
+,`Tuan` tinyint(3) unsigned
+,`Ngay` date
+);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc đóng vai cho view `ct_lophocphan`
+-- (See below for the actual view)
+--
+CREATE TABLE `ct_lophocphan` (
+`MaLHP` tinyint(100) unsigned
+,`MaGV_MH` tinyint(3) unsigned
+,`MaLop` tinyint(3) unsigned
+,`MaTG` tinyint(10) unsigned
+,`SoTinChi` tinyint(1) unsigned
+,`LoaiLop` enum('lý thuyết','thảo luận','thực hành')
+,`Nhom` tinyint(1) unsigned
+,`TenLop` varchar(30)
+,`MaGV` tinyint(3) unsigned
+,`MaMon` varchar(10)
+,`ThoiGian` varchar(13)
+,`TG_BatDau` date
+,`TG_KetThuc` date
+);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc đóng vai cho view `ct_monnganh`
+-- (See below for the actual view)
+--
+CREATE TABLE `ct_monnganh` (
+`MaMon` varchar(10)
+,`TenMon` varchar(30)
+,`MaNganh` varchar(10)
+,`TenNghanh` varchar(50)
+,`ChiTiet` varchar(1000)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `danhmucbv`
 --
 
@@ -137,6 +212,40 @@ CREATE TABLE `diadiem` (
 INSERT INTO `diadiem` (`MaDD`, `TenDD`) VALUES
 (1, '312-B5'),
 (2, '345-A3');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc đóng vai cho view `dl_giangvien`
+-- (See below for the actual view)
+--
+CREATE TABLE `dl_giangvien` (
+`MaGV` tinyint(10) unsigned
+,`HoTen` varchar(50)
+,`GioiTinh` varchar(3)
+,`SDT` varchar(10)
+,`TenMon` varchar(30)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc đóng vai cho view `dl_nhanvien`
+-- (See below for the actual view)
+--
+CREATE TABLE `dl_nhanvien` (
+`MaND` tinyint(20) unsigned
+,`HoTen` varchar(50)
+,`GioiTinh` varchar(3)
+,`SDT` varchar(10)
+,`Username` varchar(20)
+,`Password` varchar(64)
+,`Salt` varchar(100)
+,`ValidationCode` varchar(100)
+,`Active` tinyint(1)
+,`MaCV` tinyint(10) unsigned
+,`ChucVu` varchar(10)
+);
 
 -- --------------------------------------------------------
 
@@ -186,14 +295,14 @@ CREATE TABLE `kehoach` (
   `MaKH` tinyint(100) UNSIGNED NOT NULL,
   `MaLHP` tinyint(3) UNSIGNED NOT NULL,
   `SoTuan` tinyint(2) UNSIGNED NOT NULL,
-  `SoTiet` tinyint(2) UNSIGNED NOT NULL
+  `TongSoTiet` tinyint(2) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `kehoach`
 --
 
-INSERT INTO `kehoach` (`MaKH`, `MaLHP`, `SoTuan`, `SoTiet`) VALUES
+INSERT INTO `kehoach` (`MaKH`, `MaLHP`, `SoTuan`, `TongSoTiet`) VALUES
 (1, 1, 12, 30),
 (2, 2, 10, 15);
 
@@ -360,8 +469,8 @@ CREATE TABLE `thoigian` (
 INSERT INTO `thoigian` (`MaTG`, `NamHoc`, `HocKy`, `GiaiDoan`, `TG_BatDau`, `TG_KetThuc`) VALUES
 (1, '2019-2020', '1', '1', '0000-00-00', '0000-00-00'),
 (2, '2019-2020', '2', '1', '0000-00-00', '0000-00-00'),
-(3, '2020', '2', '1', '2020-02-03', '2020-03-29'),
-(4, '2020', '2', '1', '2020-02-17', '2020-03-29');
+(3, '2019-2020', '2', '1', '2020-02-03', '2020-03-29'),
+(4, '2019-2020', '2', '1', '2020-02-17', '2020-03-29');
 
 -- --------------------------------------------------------
 
@@ -384,6 +493,60 @@ INSERT INTO `tiet` (`MaTiet`, `TG_BatDau`, `TG_KetThuc`) VALUES
 (2, '07:55:00', '08:45:00'),
 (3, '08:50:00', '09:40:00'),
 (4, '09:45:00', '10:35:00');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc cho view `ct_kehoach`
+--
+DROP TABLE IF EXISTS `ct_kehoach`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ct_kehoach`  AS  select `ctkh`.`MaKH` AS `MaKH`,`ctkh`.`Tuan` AS `Tuan`,`ctkh`.`Ngay` AS `Ngay`,`ctkh`.`NoiDung` AS `NoiDung`,`ctkh`.`SoTiet` AS `SoTiet`,`k`.`MaLHP` AS `MaLHP`,`k`.`SoTuan` AS `SoTuan`,`k`.`TongSoTiet` AS `TongSoTiet` from (`chitiet_kh` `ctkh` join `kehoach` `k`) where `ctkh`.`MaKH` = `k`.`MaKH` ;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc cho view `ct_lichtrinh`
+--
+DROP TABLE IF EXISTS `ct_lichtrinh`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ct_lichtrinh`  AS  select `l`.`MaKH` AS `MaKH`,`l`.`MaDD` AS `MaDD`,`dd`.`TenDD` AS `TenDD`,`l`.`Tiet` AS `Tiet`,`l`.`NoiDung` AS `NoiDung`,`l`.`TinhHinhLop` AS `TinhHinhLop`,`l`.`TrangThai` AS `TrangThai`,`l`.`MaGV` AS `MaGV`,`c`.`SoTuan` AS `SoTuan`,`c`.`TongSoTiet` AS `TongSoTiet`,`gv`.`MaNganh` AS `MaNganh`,coalesce(`l`.`Tuan`,`c`.`Tuan`) AS `Tuan`,coalesce(`l`.`Ngay`,`c`.`Ngay`) AS `Ngay` from (((`lichtrinh` `l` join `giangvien` `gv`) join `diadiem` `dd`) join `ct_kehoach` `c`) where `l`.`MaKH` = `c`.`MaKH` and `l`.`MaDD` = `dd`.`MaDD` and `gv`.`MaGV` = `l`.`MaGV` ;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc cho view `ct_lophocphan`
+--
+DROP TABLE IF EXISTS `ct_lophocphan`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ct_lophocphan`  AS  select `lhp`.`MaLHP` AS `MaLHP`,`lhp`.`MaGV_MH` AS `MaGV_MH`,`lhp`.`MaLop` AS `MaLop`,`lhp`.`MaTG` AS `MaTG`,`lhp`.`SoTinChi` AS `SoTinChi`,`lhp`.`LoaiLop` AS `LoaiLop`,`lhp`.`Nhom` AS `Nhom`,`l`.`TenLop` AS `TenLop`,`gvmh`.`MaGV` AS `MaGV`,`gvmh`.`MaMon` AS `MaMon`,concat(`tm`.`NamHoc`,'_',`tm`.`HocKy`,'_',`tm`.`GiaiDoan`) AS `ThoiGian`,coalesce(`lhp`.`TG_BatDau`,`tm`.`TG_BatDau`) AS `TG_BatDau`,coalesce(`lhp`.`TG_KetThuc`,`tm`.`TG_KetThuc`) AS `TG_KetThuc` from (((`lophocphan` `lhp` join `gv_monhoc` `gvmh`) join `lop` `l`) join `thoigian` `tm`) where `lhp`.`MaGV_MH` = `gvmh`.`MaGV_MH` and `lhp`.`MaLop` = `l`.`MaLop` and `tm`.`MaTG` = `lhp`.`MaTG` ;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc cho view `ct_monnganh`
+--
+DROP TABLE IF EXISTS `ct_monnganh`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ct_monnganh`  AS  select `m`.`MaMon` AS `MaMon`,`m`.`TenMon` AS `TenMon`,`nh`.`MaNganh` AS `MaNganh`,`nh`.`TenNghanh` AS `TenNghanh`,`nh`.`ChiTiet` AS `ChiTiet` from (`monhoc` `m` join `nganhhoc` `nh`) where `m`.`MaNganh` = `nh`.`MaNganh` ;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc cho view `dl_giangvien`
+--
+DROP TABLE IF EXISTS `dl_giangvien`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dl_giangvien`  AS  select `g`.`MaGV` AS `MaGV`,`n`.`HoTen` AS `HoTen`,`n`.`GioiTinh` AS `GioiTinh`,`n`.`SDT` AS `SDT`,`m`.`TenMon` AS `TenMon` from (((`nguoidung` `n` join `giangvien` `g`) join `gv_monhoc` `gm`) join `monhoc` `m`) where `g`.`MaGV` = `gm`.`MaGV` and `gm`.`MaMon` = `m`.`MaMon` and `g`.`MaGV` = `n`.`MaND` ;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc cho view `dl_nhanvien`
+--
+DROP TABLE IF EXISTS `dl_nhanvien`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dl_nhanvien`  AS  select `n`.`MaND` AS `MaND`,`n`.`HoTen` AS `HoTen`,`n`.`GioiTinh` AS `GioiTinh`,`n`.`SDT` AS `SDT`,`n`.`Username` AS `Username`,`n`.`Password` AS `Password`,`n`.`Salt` AS `Salt`,`n`.`ValidationCode` AS `ValidationCode`,`n`.`Active` AS `Active`,`n`.`MaCV` AS `MaCV`,`c`.`ChucVu` AS `ChucVu` from (`nguoidung` `n` join `chucvu` `c`) where `n`.`MaCV` < 3 and `n`.`MaCV` = `c`.`MaCV` ;
 
 --
 -- Chỉ mục cho các bảng đã đổ

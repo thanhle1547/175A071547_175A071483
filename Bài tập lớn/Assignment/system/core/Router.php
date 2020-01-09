@@ -57,7 +57,8 @@ class Router {
 
         // unset 0, 1, 2 vì nếu có tham số thì nó sẽ là các gtri còn lại trong mảng
         unset($this->url[0], $this->url[1], $this->url[2]);
-        $this->params = isset($url) ? array_values($this->url) : [];
+        $this->params = isset($url) ? array_values($this->url) 
+            : isset($_POST['data']) ? $_POST['data'] : [];
 
         // Gọi method trong controller
         call_user_func_array([$controller, $this->action], $this->params);

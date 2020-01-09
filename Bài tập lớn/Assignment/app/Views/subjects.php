@@ -6,22 +6,22 @@
                 <div class="form-control">
                     <div class="form-group">
                         <div class="select-box">
-                            <div class="selected-value" data-id=""></div>
+                            <div class="selected-value" data-id="" data-name="NganhHoc"></div>
                             <div class="values-list">
                                 <div class="values-container">
-                                    <div class="val" data-id="1">
-                                        <span>Công nghệ thông tin</span>
-                                    </div>
-                                    <div class="val" data-id="1">
-                                        <span>Hệ thống thông tin</span>
-                                    </div>
+                                    <?php
+                                    foreach ($majors as $major)
+                                        echo "<div class='val' data-id='$major->MaNganh'>
+                                            <span>$major->TenNganh</span>
+                                        </div>"
+                                    ?>
                                 </div>
                             </div>
                         </div>
                         <label>Ngành học</label>
                     </div>
                     <div class="form-group form-action">
-                        <button class="btn btn-outline-primary btn-rounded btn-add">Thêm</button>
+                        <button class="btn btn-outline-primary btn-rounded btn-plus">Thêm</button>
                     </div>
                 </div>
             </div>
@@ -29,17 +29,8 @@
             <table class="data-table">
                 <tr class="data-row">
                     <td>Mã Môn</td>
-                    <td>Mã Nghành</td>
                     <td>Tên Môn</td>
-                    <td>Số Tín Chỉ</td>
-                    <td>Thực Hành</td>
-                </tr>
-                <tr class="data-row">
-                    <td>abv</td>
-                    <td>fdgg</td>
-                    <td>fff</td>
-                    <td>aaa</td>
-                    <td>bbbb</td>
+                    <td></td>
                 </tr>
             </table>
             <div class="content-form hide">
@@ -53,15 +44,15 @@
                     <div class="form-group-inline">
                         <label>Ngành học</label>
                         <div class="select-box">
-                            <div class="selected-value"></div>
+                            <div class="selected-value" data-id="" data-name="NganhHoc"></div>
                             <div class="values-list">
                                 <div class="values-container">
-                                    <div class="val">
-                                        <span>Công nghệ thông tin</span>
-                                    </div>
-                                    <div class="val">
-                                        <span>Hệ thống thông tin</span>
-                                    </div>
+                                    <?php
+                                    foreach ($majors as $major)
+                                        echo "<div class='val' data-id='$major->MaNganh'>
+                                            <span>$major->TenNganh</span>
+                                        </div>"
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +69,75 @@
             </div>
         </div>
         </div>
-        <script src="../public/js/script.js"></script>
-        </body>
+<script>
+    $(document).ready(function() {
+        $('.btn-add').click(function() {
+            let MaMon = $("input[name='MaMon']").val();
+            let TenMon = $("input[name='TenMon']").val();
+            $.ajax({
+                url: 'subjects/add_subject',
+                type: 'POST',
+                data: {
+                    maNganh: $('.selected-value').attr('data-id'),
+                    maMon: MaMon,
+                    tenMon: TenMon
+                }
+            }).done(function() {
+                $('.btn-back').click();
+                $('.data-table').append(`
+                <tr class="data-row" data-field-id="${MaMon}">
+                    <td>${MaMon}</td>
+                    <td>${TenMon}</td>
+                    <td class="row-edit">
+                        <button class="btn btn-rounded btn-edit">
+                        </button>
+                        <button class="btn btn-rounded btn-delete">
+                        </button>
+                    </td>
+                </tr>
+                `);
+            }).fail(function(xhr, status, error) {
+                let errorMessage = xhr.status + ': ' + xhr.statusText;
+                alert("Có lỗi khi thực hiện!\nError: " + errorMessage);
+            })
+        });
+    });
 
-        </html>
+    function filter(id, data_name) {
+        $.ajax({
+            url: 'subjects/load_subjects',
+            type: 'POST',
+            data: {
+                data: {maNganh: id}
+            }
+        }).done(function(response) {
+            // Xóa hết dl trừ cột tiêu đề
+            $('.data-row:not(:first-child)').html('');
+            $.each(response, function(index, value) {
+                $('.data-table').append(`
+            <tr class="data-row" data-field-id="${response[index].MaMon}">
+                <td>${response[index].MaMon}</td>
+                <td>${response[index].TenMon}</td>
+                <td class="row-edit">
+                    <button class="btn btn-rounded btn-edit">
+                    </button>
+                    <button class="btn btn-rounded btn-delete">
+                    </button>
+                </td>
+            </tr>
+            `);
+            });
+        }).fail(function(xhr, status, error) {
+            let errorMessage = xhr.status + ': ' + xhr.statusText;
+            alert("Có lỗi khi thực hiện!\nError: " + errorMessage);
+        })
+    }
+
+    function edit_field(field_id) {
+
+    }
+</script>
+<script src="../public/js/script.js"></script>
+</body>
+
+</html>

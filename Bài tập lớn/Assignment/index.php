@@ -7,9 +7,9 @@ spl_autoload_register(function($className){
     include_once PATH_SYSTEM . "/core/$className.php";
 });
 
-spl_autoload_register(function ($className) {
+/* spl_autoload_register(function ($className) {
     include_once PATH_SYSTEM . "/core/$className.php";
-});
+}); */
 
 $router = new Router();
 $router->load();

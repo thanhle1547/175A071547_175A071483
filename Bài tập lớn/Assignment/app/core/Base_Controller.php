@@ -5,6 +5,7 @@ class Base_Controller extends Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->route = PATH_APP;
     }
 
     public function load_layout($content, $content_data = array())
@@ -16,16 +17,30 @@ class Base_Controller extends Controller {
 
     public function load_header()
     {
-        $this->view->load('header');
+        $this->load_view('header');
     }
 
     public function load_nav() {
-        $this->view->load('nav');
+        $this->load_view('nav');
     }
 
     public function load_content($content, $content_data = array())
     {
-        $this->view->load($content, $content_data);
+        $this->load_view($content, $content_data);
+    }
+
+    public function load_view($content, $content_data = array())
+    {
+        $this->view->load('app', $content, $content_data);
+    }
+
+    public function load_model($model)
+    {
+        $this->model->load('app', $model);
+    }
+
+    public function include_entity($entity) {
+        return $this->entity->load('app', $entity);
     }
 
     public function __destruct()

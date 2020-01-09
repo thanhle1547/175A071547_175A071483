@@ -2,11 +2,11 @@
 class View_Loader {
     private $content = array();
 
-    public function load($view, $data = array()){
+    public function load($route, $view, $data = array()){
         extract($data);
 
         ob_start();
-        include_once PATH_APP . '/Views/' . $view . '.php';
+        include_once $route . '/Views/' . $view . '.php';
         $this->content[] = ob_get_clean();
     }
 

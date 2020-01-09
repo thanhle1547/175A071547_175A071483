@@ -80,6 +80,7 @@ nav{
 }
 .nav-right{
     width: 280px;
+    flex: 0 0 280px;
     height: 94vmin;
     padding-top: 24px;
     position: relative;
@@ -125,6 +126,7 @@ nav{
 .submenu a {
     padding: 14px;
     padding-left: 55px;
+    display: inherit;
 }
 
 .come-back, .submenu li {

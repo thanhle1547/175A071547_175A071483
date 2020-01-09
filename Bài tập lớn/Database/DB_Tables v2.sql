@@ -3,7 +3,7 @@ Create Database DH_ThuyLoi
 */
 Create Table NganhHoc (
 	MaNganh varchar(10) Not null Primary key,
-	TenNghanh varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null, -- utf8 -> utf8mb4
+	TenNganh varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci Not null, -- utf8 -> utf8mb4
 	ChiTiet varchar(1000)
 );
 Create Table MonHoc (

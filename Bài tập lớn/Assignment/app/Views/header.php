@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title><?= $title ?></title>
     <link rel="stylesheet" href="../public/css/reset.css">
     <link rel="stylesheet" href="../public/css/template.css">
     <link rel="stylesheet" href="../public/css/app.css">
@@ -17,10 +17,9 @@
     <header class="app-header shadow">
         <input type="checkbox" id="btn-menu">
         <h3 class="title ">
-            Tài khoản nhân viên
+            <?= $title ?>
         </h3>
         <div class="account">
-            <img src="" alt="" class="avatar">
             <span class="name">Lê Minh Thành</span>
         </div>
     </header>

@@ -9,10 +9,5 @@
                     <td>Tên Môn</td>
                     <td>Thực Hành</td>
                 </tr>
-                <tr>
-                    <td>abv</td>
-                    <td>fdgg</td>
-                    <td>fff</td>
-                </tr>
             </table>
         </div>

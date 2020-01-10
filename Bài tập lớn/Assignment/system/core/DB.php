@@ -24,8 +24,8 @@ class DB {
                 DB_USERNAME, DB_PASSWORD,
             array(
                 PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4',
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-                // PDO::ATTR_EMULATE_PREPARES => false
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_EMULATE_PREPARES => false
             ));
         } catch (PDOException $e) {
             die("ERROR: Could not connect. " . $e->getMessage());
@@ -45,7 +45,6 @@ class DB {
 
             if ($this->stmt->execute())
                 return $this->stmt->fetchAll(PDO::FETCH_CLASS, $className);
-                
             return false;
         }
     }

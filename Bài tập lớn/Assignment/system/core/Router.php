@@ -19,9 +19,17 @@ class Router {
 
     private function getController() {
         // Chuyển đổi tên controller vì nó có định dạng là {Name}_Controller
-        return ucfirst(strtolower(
-            !empty($this->url[1]) ? $this->url[1] : $this->config['default_controller']  )) 
-            . '_Controller';
+        return (!empty($this->url[1]) ?
+            implode(
+                '',
+                array_map(
+                    'ucfirst',
+                    (explode('-', strtolower($this->url[1])))
+                )
+            )
+            : ucfirst($this->config['default_controller'])
+            ). '_Controller';
+        unset($c);
     }
 
     private function getAction() {

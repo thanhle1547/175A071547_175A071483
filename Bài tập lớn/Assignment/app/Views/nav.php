@@ -7,8 +7,8 @@
                         Quản Lí Tài Khoản
                     </h5>
                     <ul class="submenu show">
-                        <li class="active"><a href="tkGiangVien.html">Tài khoản nhân viên</a></li>
-                        <li><a href="tkGiangVien.html">Tài khoản giảng viên</a></li>
+                        <li class="active"><a href="tk-nhanvien">Tài khoản nhân viên</a></li>
+                        <li><a href="tk-giangvien">Tài khoản giảng viên</a></li>
                     </ul>
                 </li>
                 <li>
@@ -16,10 +16,10 @@
                         Quản Lí
                     </h5>
                     <ul class="submenu show">
-                        <li><a href="nghanhhoc.html">Ngành học</a></li>
-                        <li><a href="app.html">Môn Học</a></li>
-                        <li><a href="lophocphan.html">Lớp Học Phần </a></li>
-                        <li><a href="GiangVien.html">Giảng Viên</a></li>
+                        <li><a href="nganh-hoc">Ngành học</a></li>
+                        <li><a href="mon-hoc">Môn Học</a></li>
+                        <li><a href="lop-hoc-phan">Lớp Học Phần </a></li>
+                        <li><a href="giang-vien">Giảng Viên</a></li>
                     </ul>
                 </li>
             </ul>

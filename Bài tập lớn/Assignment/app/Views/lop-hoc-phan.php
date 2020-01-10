@@ -36,8 +36,10 @@
                         </div>
                         <label>Môn học</label>
                     </div>
+                    <div class="form-group form-action">
+                        <button class="btn btn-outline-primary btn-rounded btn-plus">Thêm</button>
+                    </div>
                 </div>
-                <button class="btn btn-outline-primary btn-rounded btn-plus">Thêm</button>
             </div>
     
             </button>
@@ -183,7 +185,7 @@
             let SoTinChi = $("input[name='SoTinChi']").val();
             let Nhom = $("input[name='Nhom']").val();
             $.ajax({
-                url: 'subjects/add_subject',
+                url: 'mon-hoc/add_subject',
                 type: 'POST',
                 data: {
                     maMon: MaMon,
@@ -201,7 +203,6 @@
                 $('.btn-back').click();
                 $('.data-table').append(`
                 <tr class="data-row" data-field-id="${MaMon}">
-                    <td>${}</td>
                     <td>${MaLHP}</td>
                     <td>${HoTen}</td>
                     <td>${TG_BatDau}</td>
@@ -226,7 +227,7 @@
 
     function filter(id, data_name) {
         $.ajax({
-            url: 'subjects/load_subjects',
+            url: 'mon-hoc/load_subjects',
             type: 'POST',
             data: {
                 data: {maNganh: id}

@@ -14,6 +14,8 @@ RewriteBase /
 # https://stackoverflow.com/a/41516968
 # Stop processing if already in the /public directory
 RewriteRule ^public/ - [L]
+RewriteRule ^favicon.ico - [L]
+RewriteRule index.php index.php?url=site [L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

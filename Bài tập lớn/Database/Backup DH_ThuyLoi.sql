@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 08, 2020 lúc 08:02 PM
--- Phiên bản máy phục vụ: 10.4.8-MariaDB
--- Phiên bản PHP: 7.3.11
+-- Thời gian đã tạo: Th1 10, 2020 lúc 10:58 AM
+-- Phiên bản máy phục vụ: 10.1.38-MariaDB
+-- Phiên bản PHP: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -32,7 +32,7 @@ CREATE TABLE `baiviet` (
   `MaBai` tinyint(3) UNSIGNED NOT NULL,
   `TieuDe` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
   `TomTat` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `HinhAnh` mediumblob DEFAULT NULL,
+  `HinhAnh` mediumblob,
   `NoiDung` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `MaDM` tinyint(3) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -135,7 +135,7 @@ CREATE TABLE `ct_lichtrinh` (
 ,`SoTuan` tinyint(2) unsigned
 ,`TongSoTiet` tinyint(2) unsigned
 ,`MaNganh` varchar(10)
-,`Tuan` tinyint(3) unsigned
+,`Tuan` int(3) unsigned
 ,`Ngay` date
 );
 
@@ -159,20 +159,6 @@ CREATE TABLE `ct_lophocphan` (
 ,`ThoiGian` varchar(13)
 ,`TG_BatDau` date
 ,`TG_KetThuc` date
-);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc đóng vai cho view `ct_monnganh`
--- (See below for the actual view)
---
-CREATE TABLE `ct_monnganh` (
-`MaMon` varchar(10)
-,`TenMon` varchar(30)
-,`MaNganh` varchar(10)
-,`TenNghanh` varchar(50)
-,`ChiTiet` varchar(1000)
 );
 
 -- --------------------------------------------------------
@@ -395,7 +381,10 @@ CREATE TABLE `monhoc` (
 
 INSERT INTO `monhoc` (`MaMon`, `MaNganh`, `TenMon`) VALUES
 ('	CSE484', 'TLA106', 'Cơ sở dữ liệu	'),
-('CSE482', 'TLA106', 'Hệ điều hành	');
+('CSE280', 'TLA106', 'Ngôn ngữ lập trình'),
+('CSE482', 'TLA106', 'Hệ điều hành	'),
+('CSE486', 'TLA106', 'Hệ quản trị cơ sở dữ liệu'),
+('CSE489', 'TLA106', 'Mạng máy tính');
 
 -- --------------------------------------------------------
 
@@ -405,7 +394,7 @@ INSERT INTO `monhoc` (`MaMon`, `MaNganh`, `TenMon`) VALUES
 
 CREATE TABLE `nganhhoc` (
   `MaNganh` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `TenNghanh` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `TenNganh` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ChiTiet` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -413,8 +402,8 @@ CREATE TABLE `nganhhoc` (
 -- Đang đổ dữ liệu cho bảng `nganhhoc`
 --
 
-INSERT INTO `nganhhoc` (`MaNganh`, `TenNghanh`, `ChiTiet`) VALUES
-('TLA105', '	 Kỹ thuật cơ khí', '- Kỹ thuật cơ khí;\r\n- Kỹ thuật cơ khí định hướng việc làm tại - Hàn Quốc.'),
+INSERT INTO `nganhhoc` (`MaNganh`, `TenNganh`, `ChiTiet`) VALUES
+('TLA105', 'Kỹ thuật cơ khí', '- Kỹ thuật cơ khí;\r\n- Kỹ thuật cơ khí định hướng việc làm tại - Hàn Quốc.'),
 ('TLA106', 'Công nghệ thông tin', 'Gồm các ngành:\r\n+ Công nghệ thông tin\r\n- Công nghệ thông tin;\r\n- Công nghệ thông tin Việt-Nhật.\r\n+ Hệ thống thông tin;\r\n+ Kỹ thuật phần mềm.');
 
 -- --------------------------------------------------------
@@ -432,7 +421,7 @@ CREATE TABLE `nguoidung` (
   `Password` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Salt` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ValidationCode` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Active` tinyint(1) DEFAULT 0,
+  `Active` tinyint(1) DEFAULT '0',
   `MaCV` tinyint(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -501,7 +490,7 @@ INSERT INTO `tiet` (`MaTiet`, `TG_BatDau`, `TG_KetThuc`) VALUES
 --
 DROP TABLE IF EXISTS `ct_kehoach`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ct_kehoach`  AS  select `ctkh`.`MaKH` AS `MaKH`,`ctkh`.`Tuan` AS `Tuan`,`ctkh`.`Ngay` AS `Ngay`,`ctkh`.`NoiDung` AS `NoiDung`,`ctkh`.`SoTiet` AS `SoTiet`,`k`.`MaLHP` AS `MaLHP`,`k`.`SoTuan` AS `SoTuan`,`k`.`TongSoTiet` AS `TongSoTiet` from (`chitiet_kh` `ctkh` join `kehoach` `k`) where `ctkh`.`MaKH` = `k`.`MaKH` ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `ct_kehoach`  AS  select `ctkh`.`MaKH` AS `MaKH`,`ctkh`.`Tuan` AS `Tuan`,`ctkh`.`Ngay` AS `Ngay`,`ctkh`.`NoiDung` AS `NoiDung`,`ctkh`.`SoTiet` AS `SoTiet`,`k`.`MaLHP` AS `MaLHP`,`k`.`SoTuan` AS `SoTuan`,`k`.`TongSoTiet` AS `TongSoTiet` from (`chitiet_kh` `ctkh` join `kehoach` `k`) where (`ctkh`.`MaKH` = `k`.`MaKH`) ;
 
 -- --------------------------------------------------------
 
@@ -510,7 +499,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `ct_lichtrinh`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ct_lichtrinh`  AS  select `l`.`MaKH` AS `MaKH`,`l`.`MaDD` AS `MaDD`,`dd`.`TenDD` AS `TenDD`,`l`.`Tiet` AS `Tiet`,`l`.`NoiDung` AS `NoiDung`,`l`.`TinhHinhLop` AS `TinhHinhLop`,`l`.`TrangThai` AS `TrangThai`,`l`.`MaGV` AS `MaGV`,`c`.`SoTuan` AS `SoTuan`,`c`.`TongSoTiet` AS `TongSoTiet`,`gv`.`MaNganh` AS `MaNganh`,coalesce(`l`.`Tuan`,`c`.`Tuan`) AS `Tuan`,coalesce(`l`.`Ngay`,`c`.`Ngay`) AS `Ngay` from (((`lichtrinh` `l` join `giangvien` `gv`) join `diadiem` `dd`) join `ct_kehoach` `c`) where `l`.`MaKH` = `c`.`MaKH` and `l`.`MaDD` = `dd`.`MaDD` and `gv`.`MaGV` = `l`.`MaGV` ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `ct_lichtrinh`  AS  select `l`.`MaKH` AS `MaKH`,`l`.`MaDD` AS `MaDD`,`dd`.`TenDD` AS `TenDD`,`l`.`Tiet` AS `Tiet`,`l`.`NoiDung` AS `NoiDung`,`l`.`TinhHinhLop` AS `TinhHinhLop`,`l`.`TrangThai` AS `TrangThai`,`l`.`MaGV` AS `MaGV`,`c`.`SoTuan` AS `SoTuan`,`c`.`TongSoTiet` AS `TongSoTiet`,`gv`.`MaNganh` AS `MaNganh`,coalesce(`l`.`Tuan`,`c`.`Tuan`) AS `Tuan`,coalesce(`l`.`Ngay`,`c`.`Ngay`) AS `Ngay` from (((`lichtrinh` `l` join `giangvien` `gv`) join `diadiem` `dd`) join `ct_kehoach` `c`) where ((`l`.`MaKH` = `c`.`MaKH`) and (`l`.`MaDD` = `dd`.`MaDD`) and (`gv`.`MaGV` = `l`.`MaGV`)) ;
 
 -- --------------------------------------------------------
 
@@ -519,16 +508,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `ct_lophocphan`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ct_lophocphan`  AS  select `lhp`.`MaLHP` AS `MaLHP`,`lhp`.`MaGV_MH` AS `MaGV_MH`,`lhp`.`MaLop` AS `MaLop`,`lhp`.`MaTG` AS `MaTG`,`lhp`.`SoTinChi` AS `SoTinChi`,`lhp`.`LoaiLop` AS `LoaiLop`,`lhp`.`Nhom` AS `Nhom`,`l`.`TenLop` AS `TenLop`,`gvmh`.`MaGV` AS `MaGV`,`gvmh`.`MaMon` AS `MaMon`,concat(`tm`.`NamHoc`,'_',`tm`.`HocKy`,'_',`tm`.`GiaiDoan`) AS `ThoiGian`,coalesce(`lhp`.`TG_BatDau`,`tm`.`TG_BatDau`) AS `TG_BatDau`,coalesce(`lhp`.`TG_KetThuc`,`tm`.`TG_KetThuc`) AS `TG_KetThuc` from (((`lophocphan` `lhp` join `gv_monhoc` `gvmh`) join `lop` `l`) join `thoigian` `tm`) where `lhp`.`MaGV_MH` = `gvmh`.`MaGV_MH` and `lhp`.`MaLop` = `l`.`MaLop` and `tm`.`MaTG` = `lhp`.`MaTG` ;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc cho view `ct_monnganh`
---
-DROP TABLE IF EXISTS `ct_monnganh`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ct_monnganh`  AS  select `m`.`MaMon` AS `MaMon`,`m`.`TenMon` AS `TenMon`,`nh`.`MaNganh` AS `MaNganh`,`nh`.`TenNghanh` AS `TenNghanh`,`nh`.`ChiTiet` AS `ChiTiet` from (`monhoc` `m` join `nganhhoc` `nh`) where `m`.`MaNganh` = `nh`.`MaNganh` ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `ct_lophocphan`  AS  select `lhp`.`MaLHP` AS `MaLHP`,`lhp`.`MaGV_MH` AS `MaGV_MH`,`lhp`.`MaLop` AS `MaLop`,`lhp`.`MaTG` AS `MaTG`,`lhp`.`SoTinChi` AS `SoTinChi`,`lhp`.`LoaiLop` AS `LoaiLop`,`lhp`.`Nhom` AS `Nhom`,`l`.`TenLop` AS `TenLop`,`gvmh`.`MaGV` AS `MaGV`,`gvmh`.`MaMon` AS `MaMon`,concat(`tm`.`NamHoc`,'_',`tm`.`HocKy`,'_',`tm`.`GiaiDoan`) AS `ThoiGian`,coalesce(`lhp`.`TG_BatDau`,`tm`.`TG_BatDau`) AS `TG_BatDau`,coalesce(`lhp`.`TG_KetThuc`,`tm`.`TG_KetThuc`) AS `TG_KetThuc` from (((`lophocphan` `lhp` join `gv_monhoc` `gvmh`) join `lop` `l`) join `thoigian` `tm`) where ((`lhp`.`MaGV_MH` = `gvmh`.`MaGV_MH`) and (`lhp`.`MaLop` = `l`.`MaLop`) and (`tm`.`MaTG` = `lhp`.`MaTG`)) ;
 
 -- --------------------------------------------------------
 
@@ -537,7 +517,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `dl_giangvien`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dl_giangvien`  AS  select `g`.`MaGV` AS `MaGV`,`n`.`HoTen` AS `HoTen`,`n`.`GioiTinh` AS `GioiTinh`,`n`.`SDT` AS `SDT`,`m`.`TenMon` AS `TenMon` from (((`nguoidung` `n` join `giangvien` `g`) join `gv_monhoc` `gm`) join `monhoc` `m`) where `g`.`MaGV` = `gm`.`MaGV` and `gm`.`MaMon` = `m`.`MaMon` and `g`.`MaGV` = `n`.`MaND` ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `dl_giangvien`  AS  select `g`.`MaGV` AS `MaGV`,`n`.`HoTen` AS `HoTen`,`n`.`GioiTinh` AS `GioiTinh`,`n`.`SDT` AS `SDT`,`m`.`TenMon` AS `TenMon` from (((`nguoidung` `n` join `giangvien` `g`) join `gv_monhoc` `gm`) join `monhoc` `m`) where ((`g`.`MaGV` = `gm`.`MaGV`) and (`gm`.`MaMon` = `m`.`MaMon`) and (`g`.`MaGV` = `n`.`MaND`)) ;
 
 -- --------------------------------------------------------
 
@@ -546,7 +526,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `dl_nhanvien`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dl_nhanvien`  AS  select `n`.`MaND` AS `MaND`,`n`.`HoTen` AS `HoTen`,`n`.`GioiTinh` AS `GioiTinh`,`n`.`SDT` AS `SDT`,`n`.`Username` AS `Username`,`n`.`Password` AS `Password`,`n`.`Salt` AS `Salt`,`n`.`ValidationCode` AS `ValidationCode`,`n`.`Active` AS `Active`,`n`.`MaCV` AS `MaCV`,`c`.`ChucVu` AS `ChucVu` from (`nguoidung` `n` join `chucvu` `c`) where `n`.`MaCV` < 3 and `n`.`MaCV` = `c`.`MaCV` ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `dl_nhanvien`  AS  select `n`.`MaND` AS `MaND`,`n`.`HoTen` AS `HoTen`,`n`.`GioiTinh` AS `GioiTinh`,`n`.`SDT` AS `SDT`,`n`.`Username` AS `Username`,`n`.`Password` AS `Password`,`n`.`Salt` AS `Salt`,`n`.`ValidationCode` AS `ValidationCode`,`n`.`Active` AS `Active`,`n`.`MaCV` AS `MaCV`,`c`.`ChucVu` AS `ChucVu` from (`nguoidung` `n` join `chucvu` `c`) where ((`n`.`MaCV` < 3) and (`n`.`MaCV` = `c`.`MaCV`)) ;
 
 --
 -- Chỉ mục cho các bảng đã đổ

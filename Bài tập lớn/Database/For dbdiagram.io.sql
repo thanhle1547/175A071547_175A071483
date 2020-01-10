@@ -3,23 +3,23 @@ Create Database DH_ThuyLoi
 */
 Create Table NganhHoc (
 	MaNganh varchar(10) Not null Primary key,
-	TenNghanh varchar(50)Not null, -- utf8 -> utf8mb4
+	TenNganh varchar(50) Not null, -- utf8 -> utf8mb4
 	ChiTiet varchar(1000)
 );
 Create Table MonHoc (
 	MaMon varchar(10) Not null Primary key,
 	MaNganh varchar(10) Not null,
-	TenMon varchar(30)Not null,
+	TenMon varchar(30) Not null,
 	Foreign Key (MaNganh) References NganhHoc(MaNganh)
 );
 
 Create Table ChucVu (
     MaCV tinyint(10) UNSIGNED Not null,
-    ChucVu varchar(10)Not null
+    ChucVu varchar(10) Not null
 );
 Create Table NguoiDung (
 	MaND tinyint(20) UNSIGNED Not null Primary key AUTO_INCREMENT,
-	HoTen varchar(50)Not null,
+	HoTen varchar(50) Not null,
 	GioiTinh varchar(3) ,
 	SDT varchar(10),
     Username varchar(20) Not null,
@@ -46,7 +46,7 @@ Create Table GV_MonHoc (
 );
 Create Table Lop (
 	MaLop tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
-	TenLop varchar(30)Not null
+	TenLop varchar(30) Not null
 );
 
 Create Table ThoiGian (
@@ -59,7 +59,8 @@ Create Table ThoiGian (
 );
 Create Table Tiet (
 	MaTiet tinyint(2) UNSIGNED Not null Primary key,
-	ThoiGian time Not null,
+	TG_BatDau time Not null,
+	TG_KetThuc time Not null
 );
 Create Table DiaDiem
 (
@@ -88,9 +89,9 @@ Create Table ChiTietLHP (
 	Thu tinyint(1) UNSIGNED Not null,
 -- so với các bản ghi khác có bị trùng địa điểm/tiết ko  ->> trigger insert, update
 	MaDD tinyint UNSIGNED Not null, 
-	MaTiet varchar(10) Not null, -- là 1 chuỗi vd: '7,8,9', cắt ra để kiểm tra
-	Foreign key (MaDD) References DiaDiem(MaDD),
-	Foreign key (MaTiet) References Tiet(MaTiet)
+	Tiet varchar(10) Not null, -- là 1 chuỗi vd: '7,8,9', cắt ra để kiểm tra
+	Foreign key (MaLHP) References LopHocPhan(MaLHP),
+	Foreign key (MaDD) References DiaDiem(MaDD)
 );
 
 Create Table KeHoach (
@@ -99,7 +100,7 @@ Create Table KeHoach (
 -- lớp có thời gian học kéo dài trong cả 2 giai đoạn
     SoTuan tinyint(2) UNSIGNED Not null,
 	SoTiet tinyint(2) UNSIGNED Not null,
-	Foreign Key (MaLHP) References LopHocPhan(MaLHP),
+	Foreign Key (MaLHP) References LopHocPhan(MaLHP)
 );
 Create Table ChiTiet_KH (
 	MaKH tinyint(100) UNSIGNED Not null Primary key,
@@ -117,29 +118,28 @@ Create Table LichTrinh (
 	Tuan tinyint(2) UNSIGNED DEFAULT null,
 	Ngay date DEFAULT null,
 	MaDD tinyint UNSIGNED DEFAULT null,
-	MaTiet varchar(10) DEFAULT null,
+	Tiet varchar(10) DEFAULT null,
 	NoiDung varchar(500), -- nd theo thực tế
 	TinhHinhLop varchar(500),
 	TrangThai DEFAULT null ,
 	MaGV tinyint(10) DEFAULT null, -- cho lóp học bù
 	Foreign Key (MaKH) References KeHoach(MaKH),
 	Foreign key (MaDD) References DiaDiem(MaDD),
-	Foreign key (MaTiet) References Tiet(MaTiet),
-	Foreign key (MaGV) References GiangVien(MaGV),
+	Foreign key (MaGV) References GiangVien(MaGV)
 );
 
 
 
 Create Table DanhMucBV (
 	MaDM tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
-	TenDM varchar(120)Not null
+	TenDM varchar(120) Not null
 );
 Create Table BaiViet (
 	MaBai tinyint UNSIGNED Not null Primary key AUTO_INCREMENT,
-	TieuDe varchar(120)Not null,
+	TieuDe varchar(120) Not null,
 	TomTat varchar(500) ,
 	HinhAnh mediumblob, --  ~ 16 megabytes
-	NoiDung varchar(21844)Not null,
+	NoiDung varchar(21844) Not null,
 	MaDM tinyint UNSIGNED Not null,
 	Foreign Key (MaDM) References DanhMucBV(MaDM)
 );

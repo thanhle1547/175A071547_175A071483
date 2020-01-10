@@ -307,6 +307,18 @@ nav{
 
 .nav-right { user-select: none; }
 
+.highlight {
+  animation: highlight 1800ms ease-out;
+}
+@keyframes highlight {
+  0% {
+    background-color: rgba(238, 130, 238, 0.55);
+  }
+  100% {
+    background-color: inherit;
+  }
+}
+
 @media screen and (max-width: 768px) {
     .nav-right {
         position: fixed;

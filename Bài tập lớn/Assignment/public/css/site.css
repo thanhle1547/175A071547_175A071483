@@ -51,6 +51,11 @@
     font-family: Arial, Helvetica, sans-serif;
 } */
 
+.socials a {
+    margin: 0 12px;
+    font-size: 1.25rem;
+}
+
 article {
    
 }

@@ -110,6 +110,7 @@ $(document).ready(function(){
       content_header.hide();
       data_table.hide();
       content_form.removeClass('hide');
+      $('#btn-edit').hide();
     }
     else {
       content_header.show();
@@ -131,10 +132,16 @@ $(document).ready(function(){
       content_header.hide();
       data_table.hide();
       content_form.removeClass('hide');
-
-      // lấy gtri của từng ô trong hàng điền vào form
-      // được định nghĩa sau
-      edit_field($(this).closest('.data-row').attr('data-field-id'));
+      $('#btn-add').hide();
     }
+
+    // lấy gtri của từng ô trong hàng điền vào form
+    // được định nghĩa sau
+    edit_field($(this).closest('.data-row'));
+  });
+
+  $('.btn-delete').click(function () {
+    // được định nghĩa sau
+    edit_field($(this).closest('.data-row'));
   });
 });

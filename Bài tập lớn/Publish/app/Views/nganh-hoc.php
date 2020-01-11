@@ -45,13 +45,21 @@
 </div>
 </div>
 <script>
+    var i_MaNganh;
+    var i_TenNganh;
+    var i_ChiTiet;
+    var MaNganh_Cu;
     $(document).ready(function() {
+        i_MaNganh = $("input[name='MaNganh']");
+        i_TenNganh = $("input[name='TenNganh']");
+        i_ChiTiet = $("input[name='ChiTiet']");
+
         $('.btn-add').click(function() {
-            let MaNganh = $("input[name='MaNganh']").val();
-            let TenNganh = $("input[name='TenNganh']").val();
-            let ChiTiet = $("input[name='ChiTiet']").val();
+            let MaNganh = i_MaNganh.val();
+            let TenNganh = i_TenNganh.val();
+            let ChiTiet = i_ChiTiet.val();
             $.ajax({
-                url: 'subjects/add_subject',
+                url: 'nganh-hoc/add_major',
                 type: 'POST',
                 data: {
                     maNganh: MaNganh,
@@ -62,9 +70,9 @@
                 $('.btn-back').click();
                 $('.data-table').append(`
                 <tr class="data-row" data-field-id="${MaNganh}">
-                    <td>${MaNganh}</td>
-                    <td>${TenNganh}</td>
-                    <td>${ChiTiet}</td>
+                    <td data-field-name="MaNganh">${MaNganh}</td>
+                    <td data-field-name="TenNganh">${TenNganh}</td>
+                    <td data-field-name="ChiTiet">${ChiTiet}</td>
                     <td class="row-edit">
                         <button class="btn btn-rounded btn-edit">
                         </button>
@@ -78,42 +86,65 @@
                 alert("Có lỗi khi thực hiện!\nError: " + errorMessage);
             })
         });
+
+        $('#btn-edit').click(function() {
+            let MaNganh = i_MaNganh.val();
+            let TenNganh = i_TenNganh.val();
+            let ChiTiet = i_ChiTiet.val();
+            let row = $(this).closest('.data-row');
+
+            $.ajax({
+                url: 'mon-hoc/edit_subject',
+                type: 'POST',
+                data: {
+                    maNganh: MaNganh,
+                    tenNganh: TenNganh,
+                    chiTiet: ChiTiet,
+                    maMon: MaMon,
+                    maNganhCu: MaNganh_Cu.attr('data-field-id')
+                }
+            }).done(function() {
+                // Xóa cái đã sửa
+                row.remove();
+                $('.btn-back').click();
+                /* $('.data-table').append(`
+                <tr class="data-row" data-field-id="${MaNganh}">
+                    <td data-field-name="MaNganh">${MaNganh}</td>
+                    <td data-field-name="TenNganh">${TenNganh}</td>
+                    <td data-field-name="ChiTiet">${ChiTiet}</td>
+                    <td class="row-edit">
+                        <button class="btn btn-rounded btn-edit">
+                        </button>
+                        <button class="btn btn-rounded btn-delete">
+                        </button>
+                    </td>
+                </tr>
+                `); */
+                // Tự động cuộn tới cái vừa sửa
+                $('html,body').animate({
+                    scrollTop: $(`[data-field-id="${MaMon}"]`).offset().top
+                }, 'slow');
+                // Highlight cái vừa chèn
+                $(`[data-field-id="${MaMon}"]`).addClass("highlight");
+                setTimeout(function() {
+                    $(`[data-field-id="${MaMon}"]`).removeClass('highlight');
+                }, 1800);
+                // Xóa dl đã nhập
+                i_MaMon.val('');
+                i_TenMon.val('');
+            }).fail(function(xhr, status, error) {
+                let errorMessage = xhr.status + ': ' + xhr.statusText;
+                alert("Có lỗi khi thực hiện!\nError: " + errorMessage);
+            })
+        });
     });
 
-    function filter(id, data_name) {
-        $.ajax({
-            url: 'subjects/load_subjects',
-            type: 'POST',
-            data: {
-                data: {
-                    maNganh: id
-                }
-            }
-        }).done(function(response) {
-            // Xóa hết dl trừ cột tiêu đề
-            $('.data-row:not(:first-child)').html('');
-            $.each(response, function(index, value) {
-                $('.data-table').append(`
-            <tr class="data-row" data-field-id="${response[index].MaMon}">
-                <td>${response[index].MaMon}</td>
-                <td>${response[index].TenMon}</td>
-                <td class="row-edit">
-                    <button class="btn btn-rounded btn-edit">
-                    </button>
-                    <button class="btn btn-rounded btn-delete">
-                    </button>
-                </td>
-            </tr>
-            `);
-            });
-        }).fail(function(xhr, status, error) {
-            let errorMessage = xhr.status + ': ' + xhr.statusText;
-            alert("Có lỗi khi thực hiện!\nError: " + errorMessage);
-        })
-    }
+    function edit_field(row) {
+        MaNganhCu = row.find('[data-field-name="MaNganh"]');
 
-    function edit_field(field_id) {
-
+        i_NganhHoc.text(MaNganh_Cu.text());
+        i_TenNganh.val(row.find('[data-field-name="TenNganh"]').text());
+        i_ChiTiet.val(row.find('[data-field-name="ChiTiet"]').text());
     }
 </script>
 <script src="../public/js/script.js"></script>

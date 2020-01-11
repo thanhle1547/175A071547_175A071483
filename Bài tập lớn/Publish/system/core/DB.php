@@ -32,7 +32,7 @@ class DB {
         }
     }
 
-    public function exec_fetchAll_to_class($query, $className, &$params = array()) {
+    public function query_fetchAll_to_class($query, $className, &$params = array()) {
         if ($this->stmt = $this->pdo->prepare($query)) {
             if (!empty($params))
                 foreach($params as $param)
@@ -45,6 +45,21 @@ class DB {
 
             if ($this->stmt->execute())
                 return $this->stmt->fetchAll(PDO::FETCH_CLASS, $className);
+            return false;
+        }
+    }
+
+    public function exec_query($query, &$params) {
+        if ($this->stmt = $this->pdo->prepare($query)) {
+            foreach($params as $param)
+                $this->stmt->bindParam(
+                    $param->parameter, 
+                    $param->variable, 
+                    $param->data_type, 
+                    $param->length
+                );
+            if ($this->stmt->execute())
+                return true;
             return false;
         }
     }

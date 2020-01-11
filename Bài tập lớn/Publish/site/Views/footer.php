@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-4 pl-0">
                 <a href="https://www.google.com/maps/@21.0071611,105.8258556,521m/data=!3m1!1e3" target="_blank">
-                    <img src="../public/imgs/TLU-map.png" alt="Bản đồ trường Đại học Thủy lợi" title="Bản đồ trường Đại học Thủy lợi">
+                    <img src="../../../public/imgs/TLU-map.png" alt="Bản đồ trường Đại học Thủy lợi" title="Bản đồ trường Đại học Thủy lợi">
                 </a>
             </div>
             <div class="col-md-8 ">

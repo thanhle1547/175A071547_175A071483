@@ -5,7 +5,6 @@
                 </h1>
                 <div class="control-group">
                     <button class="btn btn-outline-primary btn-rounded btn-plus">Thêm</button>
-                    <button class="btn btn-outline-primary btn-rounded">Nhập từ file excel</button>
                 </div>
             </div>
             <div class="data-wrapper">

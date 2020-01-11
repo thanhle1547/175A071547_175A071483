@@ -11,7 +11,7 @@ class Base_Controller extends Controller {
     public function load_layout($content, $content_data = array())
     {
         $this->load_header($content_data);
-        $this->load_nav();
+        $this->load_nav($content_data);
         $this->load_content($content, $content_data);
     }
 
@@ -20,8 +20,8 @@ class Base_Controller extends Controller {
         $this->load_view('header', $content_data);
     }
 
-    public function load_nav() {
-        $this->load_view('nav');
+    public function load_nav($content_data = array()) {
+        $this->load_view('nav', $content_data);
     }
 
     public function load_content($content, $content_data = array())

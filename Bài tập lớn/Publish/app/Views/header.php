@@ -14,12 +14,14 @@
 </head>
 
 <body>
-    <header class="app-header shadow">
-        <input type="checkbox" id="btn-menu">
-        <h3 class="title ">
-            <?= $title ?>
-        </h3>
-        <div class="account">
-            <span class="name">Lê Minh Thành</span>
-        </div>
-    </header>
+    <?php if ($page != 'login') : ?>
+        <header class="app-header shadow">
+            <input type="checkbox" id="btn-menu">
+            <h3 class="title ">
+                <?= $title ?>
+            </h3>
+            <div class="account">
+                <button class="btn btn-white-primary" id="btn-logout">Đăng xuất</button>
+            </div>
+        </header>
+    <?php endif; ?>

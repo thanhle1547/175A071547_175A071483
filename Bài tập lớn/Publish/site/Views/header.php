@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $title ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-grid-only@1.0.0/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../public/css/bootstrap-grid.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="../public/css/template.css">
@@ -65,19 +65,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-5 col-md-5 ">
-                    <a href=""> <img class="header-brand" src="../public/imgs/logo.png" alt="aa"></a>
+                    <a href=""> <img class="header-brand" src="../../../public/imgs/logo.png" alt="aa"></a>
                 </div>
                 <button class="btn btn-outline-primary" id="btn-menu">
                     <i class="material-icons-round">menu</i>
                 </button>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-7 header-right">
                     <button class="btn btn-outline-primary btn-rounded-corner btn-login">
-                        <a href="../app/login">Đăng Nhập</a>
+                        <a href="../../../app/account">Đăng Nhập</a>
                     </button>
                     <nav>
-                        <a href="home" <?php if ($page == 'home') echo `class='active'` ?>>Trang Chủ</a>
-                        <a href="news" <?php if ($page == 'news') echo `class='active'` ?>>Tin Tức</a>
-                        <a href="../app/schedule" <?php if ($page == 'schedule') echo `class='active'` ?>>Lịch Trình Giảng Dạy</a>
+                        <a href="../../../site/home" <?php if ($page == 'home') echo `class='active'` ?>>Trang Chủ</a>
+                        <a href="../../../site/news" <?php if ($page == 'news') echo `class='active'` ?>>Tin Tức</a>
+                        <a href="../../../app/schedule" <?php if ($page == 'schedule') echo `class='active'` ?>>Lịch Trình Giảng Dạy</a>
                     </nav>
                 </div>
             </div>

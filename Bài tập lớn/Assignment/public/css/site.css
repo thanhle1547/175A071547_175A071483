@@ -133,6 +133,13 @@ article {
     margin: 45px;
 }
 
+.news-detail .content{
+    font-size: 1.125rem;
+    font-family: Roboto, sans-serif;
+    line-height: 1.5;
+    margin-top: 45px;
+}
+
 #btn-menu{
     display: none;
     height: 36px;

@@ -1,24 +1,24 @@
 <div class="content">
     <div class="content-header">
         <h1 class="title">
-            Môn học
+            Kế hoạch giảng dạy
         </h1>
         <div class="form-control">
             <div class="form-group">
                 <div class="select-box">
-                    <div class="selected-value" data-id="" data-type="search" data-name="NganhHoc"></div>
+                    <div class="selected-value" data-id="" data-type="search" data-name="LopHocPhan"></div>
                     <div class="values-list">
                         <div class="values-container">
                             <?php
-                            foreach ($majors as $major)
-                                echo "<div class='val' data-id='$major->MaNganh'>
-                                    <span>$major->TenNganh</span>
+                            foreach ($lhp as $l)
+                                echo "<div class='val' data-id='$l->MaLHP'>
+                                    <span>$major->TenLHP</span>
                                 </div>"
                             ?>
                         </div>
                     </div>
                 </div>
-                <label>Ngành học</label>
+                <label>Lớp học phần</label>
             </div>
             <div class="form-group form-action">
                 <button class="btn btn-outline-primary btn-rounded btn-plus">Thêm</button>
@@ -28,8 +28,9 @@
     </button>
     <table class="data-table">
         <tr class="data-row">
-            <td>Mã Môn</td>
-            <td>Tên Môn</td>
+            <td>Lớp học phần</td>
+            <td>Số tuần</td>
+            <td>Số tiết</td>
             <td></td>
         </tr>
     </table>
@@ -129,7 +130,6 @@
         $('#btn-edit').click(function() {
             let MaMon = i_MaMon.val();
             let TenMon = i_TenMon.val();
-            let row = $(this).closest('.data-row');
             $.ajax({
                 url: 'mon-hoc/edit_subject',
                 type: 'POST',
@@ -142,9 +142,9 @@
                 }
             }).done(function() {
                 // Xóa cái đã sửa
-                row.remove();
+                $(this).closest('.data-row').remove();
                 $('.btn-back').click();
-                /* $('.data-table').append(`
+                $('.data-table').append(`
                 <tr class="data-row" data-field-id="${MaMon}">
                     <td data-field-name="MaMon">${MaMon}</td>
                     <td data-field-name="TenMon">${TenMon}</td>
@@ -155,7 +155,7 @@
                         </button>
                     </td>
                 </tr>
-                `); */
+                `);
                 // Tự động cuộn tới cái vừa sửa
                 $('html,body').animate({
                     scrollTop: $(`[data-field-id="${MaMon}"]`).offset().top

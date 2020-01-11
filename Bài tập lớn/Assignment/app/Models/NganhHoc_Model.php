@@ -1,17 +1,6 @@
 <?php
-class MonHoc_Model {
+class NganhHoc_Model {
     private static $params = NULL;
-
-    public static function load_subjects(&$maNganh) {
-        self::$params = array(
-            new DB_Param(':maNganh', $maNganh, PDO::PARAM_STR, 10)
-        );
-        return DB::getInstance()->query_fetchAll_to_class(
-                "Select * from dh_thuyloi.MonHoc where MaNganh = :maNganh",
-                'MonHoc',
-                self::$params
-            );
-    }
 
     public static function load_majors()
     {
@@ -21,20 +10,17 @@ class MonHoc_Model {
         );
     }
 
-    public static function add_subject(&$maNganh, &$maMon, &$tenMon)
+    public static function add_major(&$maNganh, &$tenNganh, &$chiTiet)
     {
-        // https://stackoverflow.com/a/42594833
-        // All parameters to bind_param must be passed by reference. A string is a primitive value, and cannot be passed by reference.
-        // You can fix this by creating a variable and passing that as a parameter instead:
         self::$params = array(
-            new DB_Param(':maMon', $maMon, PDO::PARAM_STR, 10),
+            new DB_Param(':chiTiet', $chiTiet, PDO::PARAM_STR, 1000),
             new DB_Param(':maNganh', $maNganh, PDO::PARAM_STR, 10),
-            new DB_Param(':tenMon', $tenMon, PDO::PARAM_STR, 30)
+            new DB_Param(':tenNganh', $tenNganh, PDO::PARAM_STR, 50)
         );
 
         try {
             DB::getInstance()->exec_query(
-                "Insert into dh_thuyloi.MonHoc values (:maMon, :maNganh, :tenMon)",
+                "Insert into dh_thuyloi.NganhHoc values (:maNganh, :tenNganh, :chiTiet)",
                 self::$params
             );
         } catch (PDOException $e) {
@@ -42,19 +28,18 @@ class MonHoc_Model {
         }
     }
 
-    public static function edit_subject(&$maNganh, &$maMon, &$tenMon, &$maMonCu, &$maNganhCu)
+    public static function edit_major(&$maNganh, &$tenNganh, &$chiTiet, &$maNganhCu)
     {
         self::$params = array(
-            new DB_Param(':maMon', $maMon, PDO::PARAM_STR, 10),
+            new DB_Param(':chiTiet', $chiTiet, PDO::PARAM_STR, 1000),
             new DB_Param(':maNganh', $maNganh, PDO::PARAM_STR, 10),
-            new DB_Param(':tenMon', $tenMon, PDO::PARAM_STR, 30),
-            new DB_Param(':maMonCu', $maMonCu, PDO::PARAM_STR, 10),
-            new DB_Param(':maNganhCu', $maNganhCu, PDO::PARAM_STR, 10)
+            new DB_Param(':tenNganh', $tenNganh, PDO::PARAM_STR, 50),
+            new DB_Param(':maNganhCu', $maNganhCu, PDO::PARAM_STR, 10),
         );
 
         try {
             DB::getInstance()->exec_query(
-                "Update dh_thuyloi.MonHoc set MaMon = :maMon, MaNganh = :maNganh, TenMon = :tenMon Where MaMon = :maMonCu and MaNganh = :maNganhCu",
+                "Update dh_thuyloi.NganhHoc set MaNganh = :maNganh, TenNganh = :tenNganh, ChiTiet = :chiTiet Where MaNganh = :maNganhCu",
                 self::$params
             );
         } catch (PDOException $e) {
@@ -80,4 +65,3 @@ class MonHoc_Model {
         }
     }
 }
-?>

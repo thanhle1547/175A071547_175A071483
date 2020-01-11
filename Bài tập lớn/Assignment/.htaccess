@@ -1,6 +1,6 @@
 # https://blog.hostvn.net/chia-se/htaccess-la-gi-cach-cau-hinh-htaccess-can-ban.html
 # Ngăn việc hiện các tập tin trong thư mục
-# Options -Indexes
+Options -Indexes
 
 # https://stackoverflow.com/questions/25275273/option-multiviews-inside-htaccess-file
 # runs before mod_rewrite and and makes Apache server match extensions of files. So /file can be in URL but it will serve /file.php.
@@ -15,13 +15,12 @@ RewriteBase /
 # Stop processing if already in the /public directory
 RewriteRule ^public/ - [L]
 RewriteRule ^favicon.ico - [L]
-RewriteRule index.php index.php?url=site [L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
 # https://help.dreamhost.com/hc/en-us/articles/215747748-How-can-I-redirect-and-rewrite-my-URLs-with-an-htaccess-file-
 # Automatically loading a subdirectory
-RewriteRule /app/ /dashboard/  [QSA,L]
+RewriteRule ^/app /dashboard/  [L]
 
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]

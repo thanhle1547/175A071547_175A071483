@@ -127,7 +127,7 @@ $(document).ready(function(){
   });
 
   // hiện content-form khi btn-edit được click
-  $('.btn-edit').click(function () {
+  $('body').on('click', '.btn-edit', function () {
     if (content_form.hasClass('hide')) {
       content_header.hide();
       data_table.hide();
@@ -140,8 +140,20 @@ $(document).ready(function(){
     edit_field($(this).closest('.data-row'));
   });
 
-  $('.btn-delete').click(function () {
+  $('body').on('click', '.btn-delete', function () {
     // được định nghĩa sau
     edit_field($(this).closest('.data-row'));
+  });
+
+  $('#btn-logout').click(function () {
+    $.ajax({
+      url: 'account/logout',
+      type: 'GET',
+    }).done(function () {
+      window.location = 'account';
+    }).fail(function (xhr, status, error) {
+      let errorMessage = xhr.status + ': ' + xhr.statusText;
+      alert("Có lỗi khi thực hiện!\nError: " + errorMessage);
+    })
   });
 });

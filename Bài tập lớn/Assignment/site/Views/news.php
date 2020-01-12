@@ -10,7 +10,7 @@
                         <img src="data:image/jpg;base64, <?= base64_encode($post->HinhAnh); ?>">
                     </div>
                     <div class="card-body">
-                        <a href="news/detail/<?= $post->MaBai ?>" class="card-title">
+                        <a href="../site/news/detail/<?= $post->MaBai ?>" class="card-title">
                             <?= $post->TieuDe; ?>
                         </a>
                         <p class=" card-text">

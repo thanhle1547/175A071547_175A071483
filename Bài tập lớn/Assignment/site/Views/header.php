@@ -75,9 +75,9 @@
                         <a href="../../../app/account">Đăng Nhập</a>
                     </button>
                     <nav>
-                        <a href="../../../site/home" <?php if ($page == 'home') echo `class='active'` ?>>Trang Chủ</a>
-                        <a href="../../../site/news" <?php if ($page == 'news') echo `class='active'` ?>>Tin Tức</a>
-                        <a href="../../../app/schedule" <?php if ($page == 'schedule') echo `class='active'` ?>>Lịch Trình Giảng Dạy</a>
+                        <a href="../../../site/home" <?php if ($page == 'home') echo "class='active'" ?>>Trang Chủ</a>
+                        <a href="../../../site/news" <?php if ($page == 'news') echo "class='active'" ?>>Tin Tức</a>
+                        <a href="../../../app/schedule" <?php if ($page == 'schedule') echo "class='active'" ?>>Lịch Trình Giảng Dạy</a>
                     </nav>
                 </div>
             </div>

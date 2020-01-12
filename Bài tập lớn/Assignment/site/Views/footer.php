@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="col-md-12 mt-4">
-                <div class="container">
+                <div class="row">
                     <div class="col-md-6 copyright">
                         © 2020 - TRƯỜNG ĐẠI HỌC THỦY LỢI
                     </div>
